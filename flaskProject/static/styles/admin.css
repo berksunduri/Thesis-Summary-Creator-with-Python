@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    background-color: #2f4454;
+    display: table-cell;
+    vertical-align: middle;
+
+}
+
+.username
+{
+     padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    background:#2e151b ;
+}
+
+.delete
+{
+        padding: 10px;
+    width: 110%;
+    font-size: 16px;
+    background: #376e6f;
+}

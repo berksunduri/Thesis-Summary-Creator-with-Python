@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log-in Page</title>
+    <link rel="stylesheet" href="/static/styles/login.css">
+</head>
+<body>
+<div class="logo"><img src="/static/styles/pdfpng.png" alt="Logo" width="100" height="100"></img></div><br><br>
+<div id="login-wrapper">
+    <form action="" method="post">
+        <div class="input-group">
+        <input name="username" type="name" placeholder="Username" id="username" required><br><br>
+        <input name="password" type="password" placeholder="Password" id="password" required><br><br>
+        </div>
+        <input type="submit" value="Log-in" id="submitLogin"><br><br>
+    </form>
+</div>
+
+<div>
+    <form action="/register">
+        <input class="register" value="Register" type="submit"><br><br>
+    </form>
+</div>
+
+<div>
+    <form action="/admin">
+        <input value="Admin Page" type="submit" class="admin">
+    </form>
+</div>
+
+</body>
+</html>

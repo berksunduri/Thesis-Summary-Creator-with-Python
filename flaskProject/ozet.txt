@@ -1,0 +1,84 @@
+Prof.Dr. Nevcihan Duru  
+Doç.Dr. Sevinç İLHAN OMURCA  
+Dr. Öğr. Üyesi Orhan AKBULUT  
+ÖZET  
+ 
+Bu çalışmanın amacı,  iletim  hatlarında arıza yeri  tespiti için empedansa dayalı algoritmaları  
+incelemek ve seri kompanze edilmiş hatlar için yeni bir algoritma geliştirmektir.   
+ 
+Öncelikle,  tek  yada  iki  baradan  alınan  ölçümleri  kullanarak  arıza  yerini  belirleyen  temel  
+algoritmalar  tanımlanmıştır.  Örnek  test  sistemleri  üzerinde  sistem  ve  arızaya  ilişkin  
+parametreler  değiştirilerek,  
+temel  arıza  yeri  algoritmalarından  elde  edilen  sonuçlar  
+karşılaştırılmıştır.  Sistem  parametreleri  hat  modeli  ve  sistemin  homojen  olup  olmama  
+durumlarını  kapsarken,  arızaya  ilişkin  parametreler  arıza  tipi,  konumu  ve  direnci  olarak  
+alınmıştır.  
+ 
+Seri  kompanze  edilmiş  iletim  hatlarında  empedansa  dayalı  geliştirilmiş  temel  algoritmaların  
+yeterli olmadığı, bu duruma özel algoritmaların gerekliliği bir uygulama ile gösterilmiştir. Bu  
+özel  algoritmalar  incelenerek  kısaca  özetlenmiştir.  Buradan  hareketle,  iletim  hatlarında  seri  
+kompanzasyon durumunu dikkate alan performansa dayalı yeni bir arıza yeri tespiti algoritması  
+bu tez kapsamında geliştirilmiştir.  
+ 
+Geliştirilen bu algoritma, hat bilgileri ve iki baradan alınan ölçümleri kullanarak iteratif olarak  
+arıza  yerini  hesaplayan,  bütün  örneklerdeki  sonuçları  karşılaştırarak  minimum  hata  ile  bir  
+sonuca  ulaşan  bir  algoritmadır.  Önerilen  algoritma,  hem  temel  algoritmalar  hem  de  seri  
+kompanze  edilmiş  iletim  hatları  için  tasarlanmış,  iki  farklı  algoritma  türü  ile  çeşitli  test  
+sistemleri  üzerinde  denenmiş,  alınan  sonuçlar  karşılaştırılmıştır.  Test  sistemleri  DigSILENT  
+üzerinde  modellenmiş  ve  kısadevre  analizleri  yapılmış  olup,  bu  sistemden  alınan  akım  ve  
+gerilim bilgileri MATLAB ortamında kodlanan algoritmalar için kullanılmıştır.  
+ 
+Anahtar  kelimeler:  Arıza  Yeri  Bulma  Algoritmaları,  İletim  Hatları,  MOV,  PMU,  Seri  
+Kapasitör.  
+ 
+  
+ 
+  
+ 
+  
+ 
+  
+  
+  
+  
+A  NEW  APPROACH  FOR  IMPEDANCE  BASED  FAULT  LOCATIONON  
+TRANSMISSION LINES  
+ 
+ABSTRACT  
+ 
+Purpose of this study is to examine impedance based algorithms on transmission lines for fault  
+location and to develop a new algorithm for series compensated lines.   
+ 
+First  of  all,  one  and  two  end  basic  fault  location  algorithms  are  described.  At  a  sample  test  
+system, results of the basic fault location algorithms are compared by changing system and fault  
+related parameters. The system parameters consist of the line model and the cases of the system  
+being homogeneous or nonhomogeneous while the fault related parameters are considered as  
+fault type, fault location and fault resistance.   
+ 
+In the series compensated transmission lines, inadequacy of the basic impedance based  fault  
+location algorithms and necessity of a new particular fault location algorithmare shown by a  
+simulation. The particular algorithms are analyzed and summarized. Then a new performance  
+based algorithm is developed for the series compensated transmission lines in this thesis.  
+ 
+The developed algorithm iteratively estimates the fault location based on the calculated fault  
+voltage and current using two end measurements and the line parameters, the algorithm can  
+compare  all  the  samples  to  attain  a  single  outcome  with  minimal  error.  On  the  various  test  
+systems, the proposed algorithm is examined with two algorithm type,the basic algorithms and  
+the particular algorithms designed for series compensated lines and the results are compared.  
+The test systems are modeled and analyzed on DigSILENT and the gained current and voltage  
+information is used in MATLAB for coded algorithms.  
+ 
+Keywords: Fault Location Algorithms, Transmission Lines, MOV, PMU, Series Capacitor.  
+ 
+  
+ 
+  
+ 
+  
+ 
+  
+ 
+  
+ 
+  
+ 

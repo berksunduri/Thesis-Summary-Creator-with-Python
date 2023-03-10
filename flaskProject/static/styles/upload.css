@@ -1,0 +1,29 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    background-color: #2f4454;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.select
+{
+    padding: 10px;
+    width: 105%;
+    font-size: 16px;
+    background: #376e6f;
+}
+.upload
+{
+        padding: 10px;
+    width: 110%;
+    font-size: 16px;
+    background: #376e6f;
+}

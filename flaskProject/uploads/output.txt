@@ -1,0 +1,4756 @@
+KOCAELİ ÜNİVERSİTESİ  
+
+MÜHENDİSLİK FAKÜLTESİ 
+
+BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ 
+
+LİSANS TEZİ 
+
+İLETİM HATLARINDA EMPEDANS TABANLI ARIZA YERİ TESPİTİ 
+
+İÇİN YENİ BİR YAKLAŞIM 
+
+ 
+
+ 
+
+Ali EKEN 
+
+KOCAELİ 2018 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+İLETİM HATLARINDA EMPEDANS TABANLI ARIZA YERİ TESPİTİ İÇİN YENİ BİR 
+
+KOCAELİ ÜNİVERSİTESİ  
+
+MÜHENDİSLİK FAKÜLTESİ 
+
+BİLGİSAYAR MÜHENDİSLİĞİ BÖLÜMÜ 
+
+BİTİRME PROJESİ 
+
+YAKLAŞIM 
+
+ALİ EKEN 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Prof.Dr. Nevcihan Duru 
+
+Danışman, Kocaeli Üniv. 
+
+Doç.Dr. Sevinç İLHAN OMURCA 
+
+Dr. Öğr. Üyesi Orhan AKBULUT 
+
+Jüri Üyesi, Kocaeli Üniv.  
+
+................................................ 
+
+Jüri Üyesi, Kocaeli Üniv. 
+
+................................................ 
+
+................................................ 
+
+Tezin Savunulduğu Tarih: 01.06.2018 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ÖNSÖZ VE TEŞEKKÜR 
+
+Bu 
+çalışması,....................................................................................................................................a
+macıyla gerçekleştirilmiştir. 
+
+tez 
+
+Tez  çalışmamda  desteğini  esirgemeyen,  çalışmalarıma  yön  veren,  bana  güvenen  ve 
+yüreklendiren danışmanım ................................ sonsuz teşekkürlerimi sunarım. 
+
+çalışmamın 
+
+Tez 
+hocam........................................... teşekkür ediyorum. 
+
+aşamalarında 
+
+bilgi 
+
+tüm 
+
+ve 
+
+destekleriyle 
+
+katkıda 
+
+bulunan 
+
+Tez  çalışmamda  gösterdiği  anlayış  ve  destek  için  sayın.............................  teşekkürlerimi 
+sunarım. 
+
+Hayatım  boyunca  bana  güç  veren  en  büyük  destekçilerim,  her  aşamada  sıkıntılarımı  ve 
+mutluluklarımı paylaşan sevgili aileme teşekkürlerimi sunarım. 
+
+Mayıs – 2018 
+
+ 
+
+ 
+
+Ali EKEN 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Bu dokümandaki tüm bilgiler, etik ve akademik kurallar çerçevesinde elde edilip sunulmuştur. 
+Ayrıca yine bu kurallar çerçevesinde kendime ait olmayan ve kendimin üretmediği ve başka 
+kaynaklardan elde edilen bilgiler ve materyaller (text, resim, şekil, tablo vb.) gerekli şekilde 
+referans edilmiş ve dokümanda belirtilmiştir. 
+
+Öğrenci No: 170201025 
+
+Adı Soyadı: Ali EKEN 
+
+İmza:………………………………….. 
+
+   
+
+ 
+
+ 
+ 
+ 
+ 
+İÇİNDEKİLER 
+
+ÖNSÖZ VE TEŞEKKÜR ............................................................................................. i 
+İÇİNDEKİLER ............................................................................................................. ii 
+ŞEKİLLER DİZİNİ ..................................................................................................... iii 
+TABLOLAR DİZİNİ .................................................................................................. iv 
+SİMGELER VE KISALTMALAR DİZİNİ ................................................................. v 
+ÖZET .......................................................................................................................... vii 
+ABSTRACT .............................................................................................................. viii 
+GİRİŞ ........................................................................................................................... 1 
+1.  SAYISAL KORUMADA TEMEL KAVRAMLAR ............................................... 3 
+  1.1.  Ayrık İşaretlerin Fazörel Gösterimi ............................................................... 3 
+  1.2.  Arıza Tipinin Belirlenmesi ............................................................................. 6 
+2.  İLETİM HATLARINDA EMPEDANSA DAYALI ARIZA YERİ BULMA 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ALGORİTMALARI .............................................................................................. 12 
+  2.1.  Tek Bara Ölçümlerini Kullanan Arıza Yeri Bulma Algoritmaları............... 13 
+2.1.1.  Basit reaktans algoritması ................................................................ 13 
+ 
+2.1.2.  Takagi algoritması ............................................................................ 13 
+ 
+2.1.3.  Geliştirilmiş Takagi algoritması ....................................................... 14 
+ 
+  2.2.  İki Bara Ölçümlerini Kullanan Arıza Yeri Bulma Algoritmaları ................ 14 
+2.1.1.  Basit arıza gerilimi eşitliği algoritması ............................................ 14 
+ 
+2.1.2.  Asimetrik arıza yeri bulma algoritması ............................................ 15 
+ 
+2.1.3.  Negatif bileşenler ile arıza yeri bulma algoritması .......................... 16 
+ 
+ 
+2.1.4.  Simetrik arıza yeri bulma algoritması .............................................. 17 
+3.  EMPEDANSA DAYALI ARIZA YERİ BULMA ALGORİTMALARININ FARKLI 
+TEST SİSTEMLERİNDE UYGULANMASI....................................................... 20 
+  3.1.  Homojen Test Sistemi .................................................................................. 20 
+  3.2.  Homojen Olmayan Test Sistemi .................................................................. 24 
+  3.3.  Homojen Olmayan Test Sistemi (Orta Uzun Hat Modeli - Pi Eşdeğer Devresi)  28 
+4.  SERİ KAPASİTÖRLÜ İLETİM HATLARINDA ARIZA YERİ TESPİTİ ......... 33 
+5.  SERİ KAPASİTÖRLÜ İLETİM HATLARI İÇİN PERFORMANSA  
+
+DAYALI ARIZA YERİ BULMA ALGORİTMASI ............................................ 37 
+
+  5.1.  Algoritmanın Temel Arıza Yeri Bulma Algoritmaları İle  
+
+Karşılaştırması.............................................................................................. 41 
+
+  5.2.  Seri Kapasitörlü İletim Hatlarını Baz Alan Arıza Yeri Bulma Algoritmalarının 
+
+Karşılaştırılması ........................................................................................... 45 
+6.  SONUÇLAR VE ÖNERİLER............................................................................... 48 
+KAYNAKLAR ........................................................................................................... 53 
+EKLER ....................................................................................................................... 59 
+KİŞİSEL YAYIN VE ESERLER .............................................................................. 68 
+ÖZGEÇMİŞ ............................................................................................................... 69 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ŞEKİLLER DİZİNİ 
+
+Şekil 1.1.  Yinelenen Fourier ifadesi .......................................................................... 5 
+Şekil 1.2.  Simetrili bileşenlerin gösterimi a) pozitif bileşenler b) negatif  
+
+bileşenler c) sıfır bileşenler ....................................................................... 7 
+
+Şekil 1.3.  Şebekenin a) pozitif bileşen devresi b) negatif bileşen devresi c) sıfır bileşen 
+
+devresi ....................................................................................................... 8 
+Şekil 1.4.  Arıza öncesi, arıza anı ve arıza sonrası durum .......................................... 9 
+Şekil 2.1.  İletim hattında arıza eşdeğer devresi ....................................................... 12 
+Şekil 3.1.  Homojen test sistemi ............................................................................... 20 
+Şekil 3.2.  Homojen olmayan test sistemi ................................................................ 24 
+Şekil 3.3.  Homojen olmayan test sistemi(pi modeli) ............................................... 28 
+Şekil 5.1.  Seri kapasitörlü iletim hattı ..................................................................... 37 
+Şekil 5.2.  Arıza yerinin S barası ve seri kapasitör arasında olma durumu .............. 38 
+Şekil 5.3.  Performansa dayalı alınan algoritmanın akış diyagramı ......................... 41 
+Şekil 5.4.  Seri kapasitörlü test sistemi ..................................................................... 42 
+Şekil 5.5.  MOV ve seri kapasitörde ki akım değişimi ............................................. 43 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+TABLOLAR DİZİNİ 
+
+Tablo 1.1.  Arıza tiplerine göre pozitif bileşen empedans eşitlikleri ......................... 10 
+Tablo 3.1.  Homojen test sisteminde farklı uzaklıklardaki çeşitli arıza tipleri  
+
+için yüzde hata oranları ........................................................................... 21 
+
+Tablo 3.2.  Homojen test sisteminde farklı arıza dirençlerindeki çeşitli arıza 
+
+tipleri için yüzde hata oranları ................................................................. 23 
+
+Tablo 3.3.  Homojen olmayan test sisteminde farklı uzaklıklardaki çeşitli arıza 
+
+tipleri için yüzde hata oranları ................................................................. 25 
+
+Tablo 3.4.  Homojen olmayan test sisteminde farklı arıza dirençlerindeki çeşitli  
+
+arıza tipleri için yüzde hata oranları ........................................................ 26 
+
+Tablo 3.5.  Homojen olmayan test sisteminde (orta uzun hat modeli - pi  
+
+eşdeğer devresi) farklı uzaklıklardaki farklı arıza tipleri için yüzde 
+hata oranları ............................................................................................. 29 
+
+Tablo 3.6.  Homojen olmayan pi eşdeğer devreli test sisteminde farklı arıza dirençlerindeki 
+
+çeşitli arıza tipleri için yüzde hata oranları.............................................. 30 
+Tablo 4.1.  Seri kompanzasyonun etkileri ve sonuçları ............................................. 33 
+Tablo 4.2.  Seri kompanze edilmiş iletim sistemleri için kullanılan bazı  
+
+algoritmalar ve özellikleri ....................................................................... 34 
+Tablo 5.1.  Test sistemi parametreleri ....................................................................... 42 
+Tablo 5.2.  Test sisteminin simülasyon parametreleri ............................................... 42 
+Tablo 5.3.  Test sisteminin farklı uzaklıklardaki çeşitli arıza tipleri için yüzde  
+
+hata oranları ............................................................................................. 44 
+
+Tablo 5.4.  Test sisteminin farklı arıza dirençlerindeki faz-faz-toprak arıza tipi  
+
+için yüzde hata oranları ........................................................................... 45 
+Tablo 5.5.  Seri kapasitörü dikkate alan algoritmaların karşılaştırılması .................. 46 
+Tablo 5.6.  Seri kapasitörü dikkate alan algoritmaların genel özellikleri .................. 47 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+SİMGELER VE KISALTMALAR DİZİNİ 
+
+α1,2,3 
+φ 
+θ 
+d 
+dcapS 
+dcapR 
+dS 
+dR 
+f0 
+fS 
+I0 
+I1 
+I2 
+Ia 
+Iab 
+Ib 
+Ibc 
+Ic 
+Ica 
+Icap 
+IF 
+IFR 
+IFS 
+Iönce 
+IR 
+Iref 
+IS 
+Isüp 
+Isüp* 
+RF 
+XL 
+xd’’ 
+V0 
+V1 
+V2 
+Va 
+Vab 
+Vb 
+Vbc 
+Vc 
+Vca 
+Vcap 
+VR 
+Vref 
+
+:  Eğim için alınan açı, (°) 
+:  Açı, (°) 
+:  Açı, (rad) 
+:  Arıza noktasının referans baraya uzaklığı, (%) 
+:  Seri kapasitörün S barasına uzaklığı, (%) 
+:  Seri kapasitörün R barasına uzaklığı, (%) 
+:  Arıza noktasının S barasına uzaklığı, (%) 
+:  Arıza noktasının R barasına uzaklığı, (%) 
+:  İşaretin frekansı, (Hz) 
+:  Örnekleme frekansı, (Hz) 
+:  Sıfır bileşen akımı, (A) 
+:  Pozitif bileşen akımı, (A) 
+:  Negatif bileşen akımı, (A) 
+:  a fazı akımı, (A) 
+:  a fazı ve b fazı akımları farkı, (A) 
+:  b fazı akımı, (A) 
+:  b fazı ve c fazı akımları farkı, (A) 
+:  c fazı akımı, (A) 
+:  c fazı ve a fazı akımları farkı, (A) 
+:  Seri kapasitör üzerinden geçen akım, (A) 
+:  Arıza noktasından geçen akım, (A) 
+:  Arıza noktasından geçen akımın R barasından gelen kısmı, (A) 
+:  Arıza noktasından geçen akımın S barasından gelen kısmı, (A) 
+:  Arıza öncesi akım, (A) 
+:  R barasından çıkan akımı, (A) 
+:  Alınan referans akım, (A) 
+:  S barasından çıkan akımı, (A) 
+:  Süperpozisyon akımı, (A) 
+:  Süperpozisyon akımının eşleniği, (A) 
+:  Arıza noktası empedansı, (Ω) 
+:  Hat empedansının imajiner bileşeni, (Ω) 
+:  Senkron makinenin subtransientreaktansı, (pu) 
+:  Sıfır bileşen gerilimi, (V) 
+:  Pozitif bileşen gerilimi, (V) 
+:  Negatif bileşen gerilimi, (V) 
+:  a fazı gerilimi, (V) 
+:  a fazı ve b fazı gerilimleri farkı, (V) 
+:  b fazı gerilimi, (V) 
+:  b fazı ve c fazı gerilimleri farkı, (V) 
+:  c fazı gerilimi, (V) 
+:  c fazı ve a fazı gerilimleri farkı, (V) 
+:  Kapasitör öncesindeki bağlantı noktasının gerilimi, (V) 
+:  R barası (uzak bara) gerilimi, (V) 
+:  Alınan referans gerilimi, (V) 
+
+VS 
+VF 
+ZCap-F 
+ZL 
+ZR 
+ZS 
+
+:  S barası (yakın/referans bara) gerilimi, (V) 
+:  Arıza noktası gerilimi, (V) 
+:  Seri kapasitör ile arıza noktası arasındaki empedans, (Ω) 
+:  Hat empedansı, (Ω) 
+:  R barasından görülen thevenin empedansı, (Ω) 
+:  S barasından görülen thevenin empedansı, (Ω) 
+
+Kısaltmalar 
+
+AC 
+ANN 
+DDA 
+FACTS 
+
+:  AlternativeCurrent (Alternatif Akım) 
+:  ArtificialNeural Networks (Yapay Sinir Ağları) 
+:  DeterministicDifferentialApproach (Deterministik Diferansiyel Yaklaşım) 
+:  FlexibleAlternativeCurrentTransmissionSystem (Esnek Alternatif Akım  İletim 
+
+Sistemi) 
+
+IEEE 
+
+:  TheInstitute  of  ElectricalandElectronicsEngineers  (Elektrik  ve  Elektronik 
+
+Im 
+min 
+MOV 
+PMU 
+R 
+Re 
+S 
+SC 
+ 
+
+Mühendisleri Enstitüsü) 
+
+:  İmajiner 
+:  Minimum 
+:  Metal OxideVaristor (Metal Oksit Varistör) 
+:  PhasorMeasurementUnit (Fazör Ölçüm Ünitesi) 
+:  Receiving (Alan) 
+:  Reel 
+:  Sending (Gönderen) 
+:   Series Capacitor (Seri Kapasitör) 
+ 
+
+ 
+ 
+ 
+ 
+İLETİM HATLARINDA EMPEDANS TABANLI ARIZA YERİ TESPİTİ İÇİN YENİ 
+BİR YAKLAŞIM  
+
+ÖZET 
+
+Bu çalışmanın amacı,  iletim  hatlarında arıza yeri  tespiti için empedansa dayalı algoritmaları 
+incelemek ve seri kompanze edilmiş hatlar için yeni bir algoritma geliştirmektir.  
+
+Öncelikle,  tek  yada  iki  baradan  alınan  ölçümleri  kullanarak  arıza  yerini  belirleyen  temel 
+algoritmalar  tanımlanmıştır.  Örnek  test  sistemleri  üzerinde  sistem  ve  arızaya  ilişkin 
+parametreler  değiştirilerek, 
+temel  arıza  yeri  algoritmalarından  elde  edilen  sonuçlar 
+karşılaştırılmıştır.  Sistem  parametreleri  hat  modeli  ve  sistemin  homojen  olup  olmama 
+durumlarını  kapsarken,  arızaya  ilişkin  parametreler  arıza  tipi,  konumu  ve  direnci  olarak 
+alınmıştır. 
+
+Seri  kompanze  edilmiş  iletim  hatlarında  empedansa  dayalı  geliştirilmiş  temel  algoritmaların 
+yeterli olmadığı, bu duruma özel algoritmaların gerekliliği bir uygulama ile gösterilmiştir. Bu 
+özel  algoritmalar  incelenerek  kısaca  özetlenmiştir.  Buradan  hareketle,  iletim  hatlarında  seri 
+kompanzasyon durumunu dikkate alan performansa dayalı yeni bir arıza yeri tespiti algoritması 
+bu tez kapsamında geliştirilmiştir. 
+
+Geliştirilen bu algoritma, hat bilgileri ve iki baradan alınan ölçümleri kullanarak iteratif olarak 
+arıza  yerini  hesaplayan,  bütün  örneklerdeki  sonuçları  karşılaştırarak  minimum  hata  ile  bir 
+sonuca  ulaşan  bir  algoritmadır.  Önerilen  algoritma,  hem  temel  algoritmalar  hem  de  seri 
+kompanze  edilmiş  iletim  hatları  için  tasarlanmış,  iki  farklı  algoritma  türü  ile  çeşitli  test 
+sistemleri  üzerinde  denenmiş,  alınan  sonuçlar  karşılaştırılmıştır.  Test  sistemleri  DigSILENT 
+üzerinde  modellenmiş  ve  kısadevre  analizleri  yapılmış  olup,  bu  sistemden  alınan  akım  ve 
+gerilim bilgileri MATLAB ortamında kodlanan algoritmalar için kullanılmıştır. 
+
+Anahtar  kelimeler:  Arıza  Yeri  Bulma  Algoritmaları,  İletim  Hatları,  MOV,  PMU,  Seri 
+Kapasitör. 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+A  NEW  APPROACH  FOR  IMPEDANCE  BASED  FAULT  LOCATIONON 
+TRANSMISSION LINES 
+
+ABSTRACT 
+
+Purpose of this study is to examine impedance based algorithms on transmission lines for fault 
+location and to develop a new algorithm for series compensated lines.  
+
+First  of  all,  one  and  two  end  basic  fault  location  algorithms  are  described.  At  a  sample  test 
+system, results of the basic fault location algorithms are compared by changing system and fault 
+related parameters. The system parameters consist of the line model and the cases of the system 
+being homogeneous or nonhomogeneous while the fault related parameters are considered as 
+fault type, fault location and fault resistance.  
+
+In the series compensated transmission lines, inadequacy of the basic impedance based  fault 
+location algorithms and necessity of a new particular fault location algorithmare shown by a 
+simulation. The particular algorithms are analyzed and summarized. Then a new performance 
+based algorithm is developed for the series compensated transmission lines in this thesis. 
+
+The developed algorithm iteratively estimates the fault location based on the calculated fault 
+voltage and current using two end measurements and the line parameters, the algorithm can 
+compare  all  the  samples  to  attain  a  single  outcome  with  minimal  error.  On  the  various  test 
+systems, the proposed algorithm is examined with two algorithm type,the basic algorithms and 
+the particular algorithms designed for series compensated lines and the results are compared. 
+The test systems are modeled and analyzed on DigSILENT and the gained current and voltage 
+information is used in MATLAB for coded algorithms. 
+
+Keywords: Fault Location Algorithms, Transmission Lines, MOV, PMU, Series Capacitor. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GİRİŞ 
+
+Güç sisteminde bir arıza oluştuğunda, maddi kayıp ve can kaybı oluşmasını önlemek için, arızalı 
+kısmın/bölgenin sistemden en kısa zamanda ayrılması sağlanmalıdır. Arıza giderildikten sonra, arızaya 
+neden olan etkeni belirleyebilmek için arıza yeri bulunmalıdır. Arıza yeri tespiti için, yakın ya da uzak 
+baradan ölçülen akım ve gerilim değerleri kullanılır. Temel arıza yeri tespiti için, yıllar içerisinde birçok 
+çalışma geliştirilmiştir [1-3]. İlk çalışmalar ağırlıkla, yürüyen dalga algoritmalarını baz almıştır [4-7]. 
+Yürüyen dalga algoritmaları arıza tipi, arıza dirençleri, arıza başlangıç açıları ve kaynak empedansları 
+gibi değişkenlerden etkilenmeyecek şekilde geliştirilmiştir. Ancak yüksek örnekleme frekansı 
+gereksinimi, örnekleme penceresi seçiminde karşılaşılan zorluklar, arıza yeri ve uzak baradan 
+yansıyan dalgaların birbirlerinden ayırt edilmesinde yaşanılan zorluklar, yeni algoritma çalışmalarına 
+zemin oluşturmuştur [8]. 
+
+Yürüyen dalga algoritmalarında yaşanılan zorluklar, tek bara ve iki bara ölçümlerini kullanan 
+empedansa dayalı algoritmaları ön plana çıkarmıştır [9, 10]. Empedansa dayalı algoritmalar, basit 
+olarak hat empedansını gerçek ve hesaplanan değerlerin karşılaştırılmasında baz alarak arıza yerini 
+tespit etmeyi amaçlar [11]. 
+
+Tek bara ölçümlerini kullanan algoritmalar basit, az maliyetli, uzak baranın etkilerinin arıza yeri tespiti 
+sonuçlarını değiştirmeyeceği algoritmalardır. Ancak arıza yeri bulma doğruluğu, iki bara ölçümlerini 
+kullanan algoritmaların altındadır [12, 13]. 
+
+İki bara ölçümlerini kullanan algoritmalar, daha düşük arıza yeri tespiti hata oranına sahiptir, özel 
+uygulamalar için (seri kapasitör, FACTS, transpoze olmamış hatlar gibi) daha kolaylıkla adapte 
+edilebilirler [14-19]. 
+
+Elektrik enerjisi talebinde, süregelen artış ve iletim hattının termal limitlerine kadar enerji transferi 
+gerekliliği, iletim sistemlerinde hızlı gelişmelere yol açmıştır [20]. Bu durum, iletim hatlarında güç 
+transferi kabiliyetini, iletim kayıplarını, güç sistemi kararlılığını ve gerilim kontrolünü iyileştirme 
+amacıyla, seri kapasitörler kullanımı gerekliliğini doğurmuştur [21]. Ancak iletim hatlarında kullanılan 
+seri kapasitör, temel arıza yeri bulma algoritmalarının arıza yerini yüksek hata ile tespit etmesine yol 
+açmaktadır. Bunun nedeni, seri kapasitör ve seri kapasitöre paralel bağlı, doğrusal olmayan MOV’dur 
+[22]. 
+
+MOV ve seri kapasitörün, arıza durumundaki davranışlarından dolayı, seri kapasitörlü iletim hatları 
+için özel algoritmalar geliştirilmiştir. Seri kapasitörlü iletim hatları için fazörel [3, 8, 14, 23-27], 
+yürüyen dalga teorisi [28, 29] ve zaman domeni hat modeline dayalı [30-33] algoritmalar 
+bulunmaktadır. Bu algoritmalara ek olarak hibrit yapay zeka uygulamaları [34-42] da vardır.  
+
+Empedansa dayalı algoritmalara genel örnekler verilerek, bu algoritmaların güç sistemlerindeki 
+çalışma karakteristiğini görmek ve buna bağlı olarak kaynak empedansları, hat empedansı, arıza 
+direnci, arıza tipi, arıza uzaklığı gibi değişkenlerinden doğacak etkiler yorumlanmıştır. Yapılan 
+uygulamalar ile algoritmaların bu değişkenler altında gösterdiği hata oranları hesaplanarak, hangi 
+sistemlerde ve hangi şartlarda kullanılabileceği, algoritmaların bu test sistemlerindeki sonuçları baz 
+alınarak anlaşılır. Bölüm 1’de, sayısal koruma ve arıza analizinin temel konuları ele alınmıştır. Bölüm 
+2’de ise, yaygın olarak kullanılan temel bir ve iki bara ölçümlerini kullanan algoritmalar teorik olarak 
+verilmiştir, Bölüm 3’te bu algoritmalar, farklı test sistemlerinde denenmiştir. Bölüm 4’te seri 
+kapasitörlü iletim hatlarında, arıza yeri tespiti için kullanılan algoritmaların genel özellikleri verilmiştir. 
+Bölüm 5’te ise, seri kapasitörlü iletim hatlarında kullanılmak üzere geliştirilen frekans domeninde 
+çalışan performansa dayalı bir algoritma sunulmuştur. Ayrıca geliştirilen algoritma Bölüm 5.1’de, 
+genel arıza yeri bulma algoritmaları ile bir test sisteminde denenerek, seri kapasitörlü iletim 
+
+hatlarında kullanılmak üzere bir algoritma geliştirmenin gerekliliği ispat edilmiştir. Bölüm 5.2’de ise, 
+seri kapasitörlü iletim hatları için geliştirilen algoritmalar ile performansa dayalı algoritma farklı arıza 
+tipi, farklı arıza direnci ve farklı arıza yeri değişkenlerinde, bir test sisteminde karşılaştırılmış ve elde 
+edilen sonuçlar yorumlanmıştır.  
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+1. SAYISAL KORUMADA TEMEL KAVRAMLAR 
+
+İletim hatlarında, arıza yerini belirlemek için, temel olarak bir veya iki baradan alınan gerilim ve akım 
+ölçümleri, iletim hattı bilgileri bilinmelidir. Buradan da anlaşılabileceği gibi arıza yerinin tespit 
+edilebilmesi için ilk adım baradan okunan akım ve gerilim verilerini irdelemektir.  
+
+1.1. Ayrık İşaretlerin Fazörel Gösterimi 
+
+Empedans tabanlı arıza yeri bulma algoritmaları, fazörel akım ve gerilim değerlerine ihtiyaç duyarlar. 
+Baralardan okunan akım ve gerilim değerleri, zaman domenindedirler. Bu verilerin, empedans tabanlı 
+algoritmalarda kullanılabilmesi için öncelikle frekans domenine dönüştürülmeleri gerekmektedir. 
+Fazörel dönüşüm için, öncelikle örnekleme tanımının bilinmesi gerekir. Baradan alınan akım ve 
+gerilim analog işaretlerinin, süreksiz özellikteki ayrık işaretlere dönüştürülmesi gerekmektedir, bu 
+duruma örnekleme denilmektedir. Bu şekilde sinüzoidal dalga, örnekleme aralıklarıyla tanımlanarak 
+işlem ve hafıza kullanımı azaltılır, böylece veriyi kullanan röle ve bilgisayar gibi işlemcilerin veri yükü 
+azalır. Örnek olarak belirtilmesi gerekilirse, y(t) sürekli işareti için; 
+
+y(t)=Ymsin(2πf0t+φ) 
+
+Denklem (1.1)’de f0 işaretin frekansıdır. k. örnek için Denklem (1.1)’den yola çıkarak Denklem (1.2) 
+elde edilir; 
+
+ 
+
+ 
+
+ örnekleme aralıklarıdır, fs=1/
+
+ ise örnekleme frekansını belirtir. Faz farkı 2π ve katları olan iki 
+
+örnek arasında bir fark yoktur. Ayrıca örnekleme frekansı seçilirken, örnekleme frekansının, işaretin 
+frekansının iki katına eşit veya daha büyük olması gerekmektedir [43]. Bu durum sağlanmazsa, 
+örneklenmiş işarette analog işarette olmayan düşük frekans bileşeni ortaya çıkar. Bu alliasing hatası 
+olarak bilinir. 
+
+Arıza yeri tespiti için geliştirilen algoritmalardan empedans tabanlı olanlarında, örneklenmiş akım ve 
+gerilim değerlerinin fazörel olarak hesaplanması gerekir. Ayrıca arıza tespiti algoritması simetrili 
+bileşenleri kullanıyorsa, genellikle zaman domenindeki veriler frekans domenine çevrilir, daha sonra 
+fazörel veriler simetrili bileşenlere çevrilir. 
+
+Fazörel dönüşüm basitçe, Eşitlik (1.1)’de genel olarak verilen sinüzoidal dalga şekline sahip bir 
+fonksiyonun, maksimum değeri (Ym) ve açısını (φ) elde etmek olarak açıklanabilir; 
+
+Zaman domenindeki işaretleri, fazörel domende ifade etmek için kullanılabilecek farklı yöntemler 
+vardır. İki örnek yöntemi, üç örnek yöntemi, türev yöntemi ve Fourier dönüşümü bu yöntemlere 
+örnek olarak verilebilir. Bu yöntemlerden, Fourier dönüşümü daha sıklıkla kullanılır.  
+
+Fourier dönüşümü, sürekli bir işaretin zaman ve frekans domeni arasında ki bağıntıyı açıklarken, arıza 
+yeri algoritmaları gibi uygulamalarda süreksiz bir işaret irdelenir. Bu durumlar için ayrık Fourier 
+dönüşümü kullanılır; 
+
+(1.1) 
+
+(1.2) 
+
+(1.3) 
+
+()()m0ykYsin2)ft(k=+ttjsY2Ysint()Ye=+= örnekleme adımı, h harmonik derecesi, k asal sayı ve bu işaret bir periyotta N sayıda 
+
+Burada 
+örneklenmiştir. Ayrık örnekleme için tam periyot veya yarım periyot fazör gösterimi kullanılabilir. Bu 
+tezde, tam periyot fazör gösterimi kullanılmıştır; 
+
+ 
+
+ 
+
+(1.4) 
+
+(1.5) 
+
+Tam periyot fazörel gösterim, Denklem (1.5) yardımıyla yapılır. Anlaşılacağı üzere, bu gösterim sadece 
+bir periyotluk veriyi fazörele çevirmek içindir. Belli bir örnekleme aralığında, fazörel gösterimi 
+kullanmak için yinelenen Fourier ifadesi kullanılmalıdır. Ayrık Fourier dönüşümünde, belirli bir 
+pencere için yapılan fazörel dönüşümdeki ilk veriyi çıkarıp yerine bu periyodu takip eden örneği 
+alırsak, yeni bir pencere oluşturmuş oluruz. Bu ekle ve çıkarma işlemini, toplam örnek sınırına kadar 
+devam ettirebiliriz. Yinelenen Fourier ifadesi, oluşan yeni pencere ile verisi çıkarılan pencereyi 
+karşılaştırarak örnek dizisinin fazörel gösterimini çıkarır. Yinelenen Fourier ifadesinin gösterimi Şekil 
+1.1’de verilmiştir. 
+
+Şekil 1.1. Yinelenen Fourier ifadesi 
+
+ 
+
+ ve 
+
+ olarak alınırsa Denklem (1.5)’de ki Y fazörel işareti; 
+
+ 
+
+(1.6) 
+
+Denklem (1.6)’da başlangıç örneği M ise; 
+
+N1jkhwtk0y(kt)Y(hw)e−==tN1jk2j1Nk02Y2Yey(kt)e2N2N−−−===Y(0-5)Y(1-6)Y(2-7)ky(kt)y=S2N=SN1jkkk02YyeN−−== 
+
+(1.7) 
+
+1 periyotu 6 örnekle örneklenen bir işaretin, 0. (ilk örnek 1. olarakta alınabilir) örnekten başlanarak ilk 
+pencerede 5. örneğe kadar olan örneklerin fazörel gösterimi Denklem (1.8)’de gösterilmiştir.  
+
+İkinci ve üçüncü penceredeki örnekleri kullanarak işaretin fazörel değeri; 
+
+ 
+
+(1.8) 
+
+Şeklinde alınan toplam örnek sayısına kadar, yeni pencereler oluşmaya devam edecektir. Her yeni 
+pencerede oluşacak değişimi bulmak için; 
+
+ 
+
+ 
+
+ 
+
+(1.9) 
+
+(1.10) 
+
+(1.11) 
+
+ 
+
+(1.12) 
+
+(1.13) 
+
+ 
+
+Genel bir ifade ile yazılırsa, M (başlangıç örneği) ve N (1 periyodun örneklenme sayısı) cinsinden 
+gösterilirse, Denklem (1.13) kullanılarak, akım ve gerilimin fazörel değerleri, toplam örnekleme sayısı 
+için ilk periyoda eklenen her örneğe bağlı olarak yinelenecek şekilde çıkartılabilir. 
+
+1.2. Arıza Tipinin Belirlenmesi 
+
+Bütün arıza tiplerinde arıza yeri tespitinin sadece faz bileşenleri ile yapılması genel olarak mümkün 
+değildir. Faz bileşenlerini kullanan arıza yeri algoritmaları, özellikle toprak arızalarında simetrili 
+bileşenlerden de faydalanırlar. Bunun dışında, sadece simetrili bileşenleri kullanarak arıza analizi 
+yapan algoritmalar da bulunmaktadır. Bu nedenle arıza yeri tespiti algoritmalarına giriş yapmadan 
+önce simetrili bileşenlerin bilinmesi gerekir. 
+
+Simetrili bileşenler, dengeli olmayan faz değerlerinin üç farklı simetrili bileşen (pozitif, negatif ve sıfır) 
+ile değiştirilmesi durumudur. Pozitif bileşen 1 indisi, negatif bileşen 2 indisi ve sıfır bileşen 0 indisi ile 
+gösterilir. Pozitif ve negatif simetrili bileşenlerden farklı olarak, sıfır simetrili bileşenlerin arasında açı 
+farkı yoktur ve bazı dengeli olmayan arıza tipleri incelendiğinde bu bileşenler ile karşılaşılır. Şekil 
+1.2’de pozitif, negatif ve sıfır bileşenleri gösterilmiştir. 
+
+SMN1jk(M,(MN1))kkM2YyeN+−−+−==()SSSSSjj2j3j4j5(0,5)0123452Yyyeyeyeyeye6−−−−−=+++++()SSSSSSjj2j3j4j5j6(1,6)1234562Yyeyeyeyeyeye6−−−−−−=+++++()SSSSSSj2j3j4j5j6j7(2,7)2345672Yyeyeyeyeyeye6−−−−−−=+++++()()SSj6j6(1,6)(0,5)(1,6)(0,5)606022YYyeyYYyey66−−−=−→=+−()()SSSSj7jj7j(2,7)(1,6)(2,7)(1,6)717122YYyeyeYYyeye66−−−−−=−→=+−()SjM(M1,MN)(M,MN1)MNM2YYyyeN−+++−+=+−Şekil  1.2.  Simetrili  bileşenlerin  gösterimi  a)  pozitif  bileşenler  b)  negatif  bileşenler  c)  sıfır 
+bileşenler 
+
+a, b, c fazlarının gerilim ve akımlarının pozitif, negatif ve sıfır bileşenler cinsinden matris formatında 
+gösterimi aşağıda ki gibidir [44]; 
+
+ 
+
+ 
+
+ 
+
+Denklem (1.14) ve Denklem (1.15)’de tanımlanan 
+
+ve 
+
+; 
+
+şeklindedir. 
+
+Simetrili bileşen uygulanan bir devrede, farklı simetrili bileşen akımların akmasına neden olan 
+empedanslara simetrili bileşen empedansı denir. Şekil 1.3 te eşdeğer simetrili bileşen devrelerinde 
+verilmiştir. 
+
+(1.14) 
+
+(1.15) 
+
+(1.16) 
+
+ 
+
+ 
+
+Şekil  1.3.  Şebekenin  a)  pozitif  bileşen  devresi  b)  negatif  bileşen  devresi  c)  sıfır 
+bileşen devresi 
+
+IIIIIIccbbaa111222Ic0a)b)c)Ib0Ia00aa21ba22caI111II1II1I=0aa21ba22caV111VV1VV1V=2211200,5j0,866612400,5j0,8666==−+==−−E ZZZ120V1+-+-+-aV2aV0aI1aI2aI0aa)b)c)1Şekil 1.3 baz alınarak empedansa bağlı simetrili bileşen matrisi; 
+
+ 
+
+(1.17) 
+
+Arıza yeri bulma algoritmaları, genel olarak arıza sonrasındaki akım ve gerilim verilerini kullanırlar. Bu 
+nedenle arıza öncesi ve sonrası verilerinin ayrımının yapılması gerekir. Bu ayrıma ek olarak, arıza 
+anında özellikle akımın sinüsoidal yapısında bozulmalar meydana gelebilir, bu bozulmalar 
+algoritmanın doğru çalışmasını engeller. Algoritmanın hesaplamalar için kullanacağı kısım, bir geçici 
+durum monitörü ile belirlenir. Arıza öncesi, arıza anı ve arıza sonrası durum Şekil 1.4’de verilmiştir. 
+
+1.4. Arıza öncesi, arıza anı ve arıza sonrası durum 
+
+Şekil 
+
+Temel bir geçici durum monitörü, fazörel akım veya gerilim verilerini bir önceki periyottaki veriler 
+(veya bir önceki yarım periyottaki veriler) ile karşılaştırarak kullanıcı tarafından belirlenen kabul 
+edilebilir bir bozulma limiti dışındaki bozulmuş verileri belirler ve diğer verilerden ayırır. 
+
+Bozulmuş verileri ayıkladıktan sonra yapılması gereken, arıza sonrası kısmın belirlenerek verilerin 
+kullanılan algoritmaya uygun hale getirilmesidir. Arıza sonrası durumu tespit etmenin en temel 
+yollarından biri, toplam hat empedansı ile baradan alınan gerilim ve akımdan elde edilen empedansın 
+karşılaştırılması şeklindedir. Eğer bu hesaplanan empedans, toplam hat empedansından küçük 
+değerde ise arızadan sonraki durum olduğu anlaşılır. Ancak bu empedans hesabı, iletim sistemleri üç 
+fazlı olduğundan arıza tipi dikkate alınarak yapılır. 
+
+Tablo 1.1’de hesaplanan empedanslarla, iletim hattının pozitif empedansı karşılaştırıldığında hem 
+arıza sonrası veri olup olmadığı hem de sistemdeki arıza tipi belirlenir.  
+
+ 
+
+000aa1111aa222aaV0Z00IVE0Z0IV000ZI=−-400-300-200-1000100200300400Üç Faz Gerilim (103V)a fazıb fazıc fazıArıza ÖncesiArıza AnıArıza SonrasıTablo 1.1. Arıza tiplerine göre pozitif bileşen empedans eşitlikleri [10]  
+
+Arıza Tipi 
+
+Pozitif Bileşen Empedans Eşitliği 
+
+a fazı - toprak 
+
+b fazı - toprak 
+
+c fazı - toprak 
+
+a-b veya a-b-t 
+b-c veya b-c-t 
+c-a veya c-a-t 
+a-b-c 
+
+VS=Va 
+
+VR=Va 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Vab/Iab 
+Vbc/Ibc 
+Vca/Ica 
+Vab/Iab veya Vbc/Ibc veya Vca/Ica 
+
+ 
+ 
+ 
+
+(1.18) 
+
+(1.19) 
+
+(1.20) 
+
+(1.21) 
+
+Arıza yeri bulma algoritmalarında, eşitlikler genellikle arıza tipine göre değil referans alınan bara (S 
+barası) ve uzak uçtaki bara (R barası) verileri olarak ayrılır. Bu nedenle algoritmalarda geçen VS, IS, VR, 
+IR sırasıyla S barası gerilim ve akımı, R barası gerilim ve akımı arıza tipine göre değişir. Örnek olarak bir 
+a fazı – toprak arızası VS, IS, VR, IR sırasıyla Denklem (1.18), Denklem (1.19), Denklem (1.20), Denklem 
+(1.21) denklemleri ile ifade edilir; 
+
+Denklem (1.18) ve Denklem (1.19)’de verilen Va, Ia, 
+
+ değerleri S barasından alınan ölçümlere göre 
+
+hesaplanmış, Denklem (1.20) ve Denklem (1.21) de verilen Va, Ia, 
+
+ değerleri ise R barasından alınan 
+
+ölçümlere göre hesaplanmıştır. 
+
+ 
+
+ 
+
+()01LL0aaa1LZZVI3I3Z−+()01LL0bba1LZZVI3I3Z−+()01LL0cca1LZZVI3I3Z−+()01LL0aa1SLZZII3ZI3−+=()01LL0aa1RLZZII3ZI3−+=0aI0aI 
+ 
+ 
+ 
+2. İLETİM HATLARINDA EMPEDANSA DAYALI ARIZA YERİ BULMA ALGORİTMALARI 
+
+İletim hatlarında arıza yeri bulma algoritmaları, genel olarak iki kısma ayrılabilir. Bunlar tek bara 
+ölçümlerini kullanan algoritmalar ve iki bara ölçümlerini kullanan algoritmalardır. 
+
+Tek bara ölçümlerini kullanan algoritmalar, tek bir referans baradan alınan veriler yardımıyla ve 
+dolayısıyla daha az veri ile arıza yerini belirlerler. Ancak kullandığı veri sınırlı olduğundan, iki bara 
+ölçümlerini kullanan algoritmalardan daha fazla hata payları vardır. Buna rağmen, arıza yeri ve uzak 
+bara arasındaki etkenlerden (seri kapasitör, admitans etkileri gibi), bu algoritmaların doğruluğunu 
+etkilemez, bu yüzden referans alınan baraya yakın oluşan arızalarda arıza yeri bulma isabeti daha 
+yüksektir. İki bara ölçümlerini kullanan algoritmaların doğruluğu yüksektir ve arıza yeri uzaklığından 
+tek bara ölçümlerini kullanan algoritmalar kadar etkilenmezler, ancak her baradan senkronize ölçüm 
+alması gerektiğinden maliyeti yüksektir. 
+
+Şekil 2.1. İletim hattında arıza eşdeğer devresi 
+
+ 
+
+Arıza yerinin tespitine yönelik geliştirilen algoritmaları tanımlamak için Şekil 2.1’de gösterilen iletim 
+hattı arıza eşdeğer devresi kullanılacaktır. Bu devrede VS (V), IS (A),VR (V), IR (A) sırasıyla referans ve 
+uzak bara gerilim ve akım değerleridir. d (%) arıza noktası, ZL (Ω) toplam hat empedansı ve VF (V), IF 
+(A), RF (Ω) sırasıyla arıza noktasındaki gerilim ve akım ve arıza direncidir. ZS (Ω) ve ZR (Ω) ise sırasıyla 
+referans ve uzak baradan görülen thevenin empedanslarıdır. 
+
+Arıza yeri bulma algoritmaları, arıza yerini belirli bir sapma ile tespit ederler. Bu sapmaya hata oranı, 
+yüzde hata, arıza yeri hatası gibi tanımlamalar yapılır. Bu hata oranı hesabında, aşağıda belirtilen IEEE 
+PC37.114 standardı baz alınmıştır [9]; 
+
+ 
+
+2.1. Tek Bara Ölçümlerini Kullanan Arıza Yeri Bulma Algoritmaları 
+
+2.1.1. Basit reaktans algoritması 
+
+S barasından bakıldığında, VS aşağıdaki şekilde yazılabilir; 
+
+VS=dZLIS+RFIF 
+
+(2.1) 
+
+ RF        dZL      (1-d)ZL    VS        VRISIR  ZR  ZSIFVFhesaplanandeğergerçekdeğer100topl%aarızayerihatmhatuzunlaıuğus−=Algoritmanın amacı, RFIF çarpımının etkilerini azaltmaktır. Bunun için Denklem (2.1) deki eşitliğin iki 
+kısmının, IS değerine bölünüp, imajiner kısımlarını ele almak gereklidir. Ancak IF, RF ve d bu eşitliğin 
+bilinmeyenleridir, eşitliğin çözülebilir olması için (IFRF)/IS kısmının omik olduğu varsayılmalıdır. 
+
+Im(VS/IS)= Im(dZL) 
+
+d= Im(VS/IS)/XL 
+
+Denklem (2.2)’den d çekildiğinde [8-10]; 
+
+XL hat empedansının imajiner bileşenidir. 
+
+Bu algoritmanın doğruluğu, IF ve IS akımlarının aynı açıda veya RF değerinin sıfır olmasına bağlıdır. 
+
+2.1.2. Takagi algoritması 
+
+Isüp=I - Iönce 
+
+Takagi metodu, güç akışı ve arıza direncinin etkilerini azaltarak basit reaktans algoritmasını 
+geliştirmeyi amaçlar. Ancak algoritma, bu geliştirme için arıza öncesi akıma (Iönce) ihtiyaç duyar. 
+
+Arıza anındaki akımdan, arıza öncesi akımı çıkartılarak elde edilen süperpozisyon akımının eşleniği 
+Denklem (2.1) deki eşitliğin iki tarafı ile çarpılırsa; 
+
+Denklem (2.4), imajiner bir eşitliğe dönüştürülürse [1, 3, 8-10]; 
+
+VSIsüp*=dZLIS Isüp*+RFIFIsüp* 
+
+d= Im(VSIsüp*)/Im(ZLISIsüp*) 
+
+Denklem (2.5) ile Denklem (2.4) karşılaştırıldığında RFIFIsüp* kısmının omik olarak alındığı görülür. 
+Bunun nedeni bu algoritma için IF ve Isüp*’ın aynı açıya sahip olduğu varsayılmasıdır. Bu varsayım 
+homojen sistemler için geçerlidir, ancak bunun dışındaki sistemlerde bu iki akımın arasındaki açı 
+arttıkça hata oranı da artacaktır. 
+
+2.1.3. Geliştirilmiş Takagi algoritması 
+
+Toprak arızalarında, Takagi algoritmasındaki süperpozisyon akımı yerine sıfır bileşen akımını (
+
+) 
+
+kullanarak, arıza öncesi akım ihtiyacının kaldırılması amaçlanmıştır. Hatta bu algoritmada, kaynak 
+empedansları biliniyorsa açı doğrulama işlemi de yapılabilir [9, 10]; 
+
+T açısı aşağıda belirtildiği şekilde elde edilir; 
+
+ 
+
+ 
+
+2.2. İki Bara Ölçümlerini Kullanan Arıza Yeri Bulma Algoritmaları 
+
+2.1.1. Basit arıza gerilimi eşitliği algoritması 
+
+Şekil 2.1’de arıza noktasındaki arıza gerilimine iki baradan da bakıldığında; 
+
+VF=VS-dZLIS 
+
+(2.2) 
+
+(2.3) 
+
+(2.4) 
+
+(2.5) 
+
+(2.6) 
+
+(2.7) 
+
+(2.8) 
+
+0S3I0jTSS0jTLSSIm(V(3I)e)dIm(ZI(3I)e)−−=000SLRFF00RLRRZZZIIT3I(1d)ZZ3I++==−+VF=VR-(1-d)ZLIR 
+
+VR-(1-d)ZLIR=VS-dZLIS 
+
+denklemleri elde edilir. Denklem (2.9) ve Denklem (2.8) birbirine eşittir; 
+
+Arıza uzaklığı d, Denklem (2.10)’dan çekildiğinde [45]; 
+
+Denklem (2.11)’den arıza uzaklığı elde edilir. 
+
+2.1.2. Asimetrik arıza yeri bulma algoritması 
+
+Arıza yeri bulma algoritmalarında ölçülen akım ve gerilim değerleri, sadece fazörel olarak değil, 
+fazörel değerleri simetrili bileşenlere ayırarak da kullanılabilirler. Simetrili bileşenler kullanılarak, arıza 
+yeri tespitinde sıfır, pozitif ve negatif bileşenlerin sonuca etkisi dikkate alınmalıdır. Sıfır bileşen 
+değerleri, genellikle kullanılmak istenmez bunun nedeni havai hatlarda sıfır bileşen değerlerinin 
+belirsiz olarak düşünülmesidir. Ayrıca pozitif simetrili bileşenlerde, hattın şönt admitans etkisi daha 
+fazla olduğundan negatif simetrili bileşenlerin kullanımı tercih edilir. Ancak hesaplamaları daha basite 
+indirgediğinden, sıfır bileşen değerleri hesaba katılmadan sadece negatif ve pozitif bileşen 
+değerleriyle arıza yeri bulma metodu daha yaygındır [8]. Bu algoritmada arıza yeri gerilimi eşitliği ve 
+hattın negatif ve pozitif bileşenleri kullanılarak asimetrik arızalar için bir algoritma oluşturulmuştur 
+(pozitif ve negatif hat empedansları eşit alınmıştır); 
+
+Denklem (2.12) ve Denklem (2.13) çözülerek Denklem (2.14) ve Denklem (2.15) elde edilir; 
+
+Bu iki empedansın toplamı ile toplam hat empedansı Denklem (2.16) de gösterildiği gibi elde edilir; 
+
+Denklem (2.14) ve Denklem (2.15)’i Denklem (2.16)’da yerine koyarak ZL elde edilir; 
+
+Denklem (2.17)’yi Denklem (2.14)’te yerine yazarak arıza yeri d elde edilir [11]; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(2.9) 
+
+(2.10) 
+
+(2.11) 
+
+(2.12) 
+
+(2.13) 
+
+(2.14) 
+
+(2.15) 
+
+(2.16) 
+
+(2.17) 
+
+(2.18) 
+
+SRRLLSRVVIZdZ(II)−+=+1111SLSRLRVdZIV(1d)ZI−=−−2222SLSRLRVdZIV(1d)ZI−=−−112221SRRSRRL12n1SRSR(VV)I(VV)IdZIIII−−−=−112221SRSSRSL1221SRSR(VV)I(VV)I(1d)ZIIII−−−−=−LLLdZ(1d)ZZ−+=11222211SRRSSRRSL1221SRSR(VV)(II)(VV)(II)ZIIII−+−−+=−112221SRRSRR11222211SRRSSRRS(VV)I(VV)Id(VV)(II)(VV)(II)−−−=−+−−+Bu arıza yeri bulma algoritması, pozitif ve negatif bileşenleri beraber kullanarak hesaplamaları 
+basitleştirip, yüksek isabet ile arıza yeri tahmininde bulunması amaçlanmıştır, ancak algoritmanın güç 
+sistemlerinde simetrik arıza yeri bulma algoritmalarıyla beraber kullanılmak zorunda olduğu da göz 
+ardı edilmemelidir. 
+
+2.1.3. Negatif bileşenler ile arıza yeri bulma algoritması 
+
+Negatif bileşenler ile arıza yeri bulma algoritması, asimetrik arıza yeri bulma algoritması gibi sadece 
+asimetrik arızalar için geliştirilmiştir ve sadece negatif simetrili bileşenler kullanılarak arıza yeri 
+hesaplayabilmektedir. Negatif bileşen değerlerinin kullanılması ile, arıza öncesi yük, arıza direnci, sıfır 
+bileşen ortak empedansı gibi arıza yeri bulma algoritmalarının hata oranlarını arttıran bileşenlerin 
+etkisi azaltılmış olur. 
+
+Sadece negatif bileşenlerin kullanıldığı algoritmada, Denklem (2.13)’e ek olarak bara gerilimleri ölçüm 
+olarak alınmamış, kaynak empedansları yardımıyla hesaplanılarak algoritmaya dahil edilmiştir; 
+
+Denklem (2.19)’da d değeri çekilirse [9, 11, 46]; 
+
+ 
+
+Denklem (2.20), arıza uzaklığını bulmak için yeterlidir ancak bu denklemin çözümü için ikinci bir 
+
+yöntem de vardır, Denklem (2.19) 
+
+’nin genliğine eşit olacak hale getirilirse, oluşan bu denklemin 
+
+kökleri alınarak da çözüm elde edilir. 
+
+2.1.4. Simetrik arıza yeri bulma algoritması 
+
+Simetrik arızalar, sıfır ve negatif bileşenleri içermediğinden sadece pozitif bileşenlerin irdelenmesi ile 
+sonuca ulaşılabilir. Bu algoritmada, hattın iki ucundan hesaplanan hat empedanslarının uzaklıklardan 
+dolayı genliği farklı olsa da, hattın homojen olduğu durumlarda hesaplanan açılar eşittir. Algoritma, 
+bu eşitliği kullanarak arıza direncini elde etmekte ve buna bağlı olarak sonuca ulaşmaktadır. 
+
+Denklem (2.12) deki eşitliğin, iki tarafı da arıza gerilimine eşit olduğundan; 
+
+Arıza akımı, S ve R baralarından ölçülen akımların toplamı olduğuna göre arıza gerilimi; 
+
+Denklem (2.21), Denklem (2.22)’de Denklem (2.23) yerine yazıldığında aşağıdaki iki denklemi elde 
+ederiz; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(2.19) 
+
+(2.20) 
+
+(2.21) 
+
+(2.22) 
+
+(2.23) 
+
+(2.24) 
+
+(2.25) 
+
+222222SLSRLR(ZdZI(Z(1d)))ZI−=−−++222222SSRRLR222LRSZIZIZIdZ(II)−++=+2RI111SLSFVdZIV0−−=111RLRRV(1d)ZIV0−−−=111FFRSVR(II)=+111SRSLF11SSVIIdZRII=+−111RSRLF11RRIIV(1d)ZRII+−−=Kolaylık olması açısından, Denklem (2.24) ve Denklem (2.25) aşağıdaki gibi yazılabilir; 
+
+(2.26) 
+
+(2.27) 
+
+Burada; 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+, 
+
+, 
+
+, 
+
+, 
+
+Denklem (2.26)’da ve Denklem (2.27)’deki empedanslar, arıza noktası ile baralar arasındaki 
+empedanslardır. Eğer bütün iletim hattı, tek bir iletken tipinden oluştuğu varsayılırsa, bu 
+empedansların açıları eşit olacaktır. Eğer bu iki empedansın tanjantı alınırsa; 
+
+ 
+
+(2.28) 
+
+Denklem (2.29)’dan iki farklı RF değeri elde edilir. Bu RF değerleri, Denklem (2.28)’deki eşitliklerden 
+herhangi birinde uygulandığında iki farklı açı elde edilir, hat karakteristikleri bilindiğine göre, hat 
+karakteristiğine yakın olan açı doğru kabul edilir ve bu açıyı sağlayan RF değeri baz alınarak işlemler 
+yürütülür. 
+
+Artık RF bilindiğine göre Denklem (2.26) ve Denklem (2.27)’den arıza uzaklığı elde edilir [11]; 
+
+ 
+
+(2.29) 
+
+ 
+
+ 
+
+L11F22FdZabR)(j(abR)+++=L11F22F(1d)ZcdR(jR)()cd−+++=1S11SVaReI=1S21SVaImI=11SR11SIIbReI+=−11SR21SIIbImI+=−1R11RVcReI=1R21RVcImI=11SR11RIIdReI+=−11SR21RIIdImI+=−22F22F11F11FabRcdRtan()abRcdR+++==+11F22F11F22F11F22F(abR)j(abR)d(cdR)j(cdR)(abR)j(abR)+++=+++++++ 
+ 
+ 
+ 
+3. EMPEDANSA DAYALI ARIZA YERİ BULMA ALGORİTMALARININ FARKLI TEST SİSTEMLERİNDE 
+UYGULANMASI 
+
+Bölüm 2’de ele alınan algoritmalar bu bölümde homojen, homojen olmayan ve orta uzun iletim hattı 
+modeli (pi eşdeğer devresi) kullanılmış sistemlerde farklı arıza uzaklığı, arıza direnci ve arıza tipleri ile 
+test edilerek, algoritmanın farklı etkenler altındaki hata oranları belirlenecektir. Bu sayede farklı 
+durumlarda ve sistemlerde, hangi arıza algoritmasının kullanılmasının daha uygun olacağının analizi 
+yapılabilecektir. Yapılan testler için, örnekleme frekansı 2 kHz alınarak, arıza anı 0,02 sn ve toplam 
+simülasyon süresi 0,14 sn olarak test sistemleri oluşturulmuştur. Test sistemleri DigSILENT’ta 
+modellenip, analiz edilmiş olup, bu analizler sonucunda elde edilen baraların akım ve gerilim 
+değerleri, MATLAB kullanılarak işlenmiş ve sonuçlar elde edilmiştir.  
+
+3.1. Homojen Test Sistemi  
+
+Homojen sistem, kaynak empedanslarının açısının, hat empedansı açısına eşit olma durumu olarak 
+açıklanabilir. [9, 11, 16, 44] kaynaklarına göre uyarlanan test sistemi, Şekil 3.1’de verildiği gibi, 
+Thevenin eşdeğeri ile temsil edilen iki farklı şebekeyi birbirine bağlayan iletim hattını içermektedir.  
+
+Şekil 3.1. Homojen test sistemi 
+
+ 
+
+Arıza uzaklığının etkisini belirlemek için hat üzerinde yakın baradan seçili uzaklıklarda kısa devreler 
+oluşturulmuş, bu durumlardaki tek bara ve çift baradan akım ve gerilim bilgileri alınmıştır. Bu bilgiler 
+her bir algoritma için kullanılarak, arıza yeri ve hata oranları yüzdesi hesaplanmıştır. Alınan sonuçlar 
+arıza direnci olmadığı durum için Tablo 3.1’de karşılaştırılmıştır. 
+
+Tablo 3.1. Homojen test sisteminde farklı uzaklıklardaki çeşitli arıza tipleri için yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması 
+Tipi 
+
+Arıza Tipi 
+
+abc 
+0,0461 
+
+0,1073 
+0,1435 
+0,1835 
+0,2747 
+0,0288 
+0,0568 
+0,0705 
+0,0840 
+0,1105 
+- 
+
+at 
+0,0313 
+
+0,0775 
+0,1062 
+0,1385 
+0,2140 
+0,0316 
+0,0786 
+0,1079 
+0,1410 
+0,2188 
+0,0313 
+
+bc 
+0,0461 
+
+0,1073 
+0,1435 
+0,1835 
+0,2747 
+0,0288 
+0,0568 
+0,0705 
+0,0840 
+0,1105 
+- 
+
+bct 
+0,0461 
+
+0,1073 
+0,1435 
+0,1835 
+0,2747 
+0,0288 
+0,0568 
+0,0705 
+0,0840 
+0,1105 
+0,8808 
+
+Arıza 
+Uzaklığı 
+
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+
+Takagi Algoritması 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+- 
+- 
+- 
+- 
+0,0153 
+0,0062 
+0,0001 
+0,0075 
+0,0254 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0222 
+0,0317 
+0,0354 
+0,0334 
+0,0225 
+
+0,0775 
+0,1062 
+0,1385 
+0,2140 
+0,0156 
+0,0066 
+0,0002 
+0,0073 
+0,0255 
+0,0002 
+0,0003 
+0,0003 
+0,0003 
+0,0002 
+0,0161 
+0,0068 
+0,0004 
+0,0073 
+0,0258 
+- 
+- 
+ 
+- 
+- 
+
+- 
+- 
+- 
+- 
+0,0153 
+0,0062 
+0,0001 
+0,0075 
+0,0254 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0154 
+0,0064 
+0,0001 
+0,0073 
+0,0253 
+- 
+- 
+- 
+- 
+- 
+
+1,3621 
+1,5223 
+1,6471 
+1,8218 
+0,0153 
+0,0062 
+0,0001 
+0,0075 
+0,0254 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0367 
+0,0100 
+0,0002 
+0,0083 
+0,0189 
+- 
+- 
+- 
+- 
+- 
+
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+Tablo 3.1’de görüldüğü gibi tek baranın ölçümlerini kullanan algoritmalara karşı, iki bara ölçümlerini 
+kullanan algoritmaların doğruluk yüzdesinin daha iyi olduğu görülmektedir. Geliştirilmiş Takagi 
+algoritması dışındaki algoritmalarda, hata oranının %1’in altında olduğu görülmektedir. Tek bara 
+ölçümlerini kullanan algoritmaların arıza yeri uzaklığı arttıkça hata oranlarının arttığı ancak iki bara 
+ölçümlerini kullanan algoritmalarda ise hata oranlarının arıza uzaklığından bağımsız değiştiği 
+gözlenmektedir. 
+
+Tek bara ölçümlerini kullanan algoritmalarda, görülebileceği gibi geliştirilmiş Takagi algoritması en 
+kötü sonuçları vermekte ve faz-toprak arıza tiplerinde Takagi algoritması ile aynı sonuçları 
+verdiğinden bu test senaryosunda etkisiz kaldığı görülmektedir. Bu test sisteminden geliştirilmiş 
+Takagi algoritmasının, faz-toprak arızası dışındaki arıza tipleri için uygun olmadığı görülmektedir. 
+Takagi algoritması, arıza öncesi akım değerlerini de kullanmasına karşın, basit reaktans yönteminden 
+daha yüksek hata oranlarına sahip olduğu görülmektedir.  
+
+İki bara ölçümlerini kullanan algoritmalarda, elde edilen maksimum hata oranı %0,4 değerinin 
+altındadır. En kötü sonuçları, simetrik arıza yeri bulma algoritması ile hesaplanmış olup bu 
+algoritmaya alternatif olarak basit arıza gerilimi eşitliği algoritması kullanılabileceği elde edilen 
+sonuçlardan anlaşılmaktadır. Basit arıza gerilimi eşitliği algoritması, simetrik arızalarda en iyi sonuçları 
+elde etmekle beraber diğer iki bara ölçümlerini kullanan algoritmalardaki gibi belli arıza tiplerine 
+bağımlı değildir ve fazörel değerleri simetrili bileşenlerine ayırma ihtiyacını da ortadan kaldırır. 
+Asimetrik arızalarda ise, arıza uzaklığına en yakın sonuçları, negatif bileşenli arıza yeri bulma 
+algoritması ile elde edildiği görülmektedir. Asimetrik arıza yeri bulma algoritması ise genel olarak 
+
+doğruya yakın sonuçlar verse de elde edilen sonuçlar diğer iki bara ölçümleri kullanan algoritmaların 
+sonuçlarından genel olarak daha fazla hata oranına sahiptir. 
+
+Arıza direncinin etkisini belirlemek için, arıza yeri sabit (50 km) tutulup, çeşitli arıza tiplerinde arıza 
+direnç değerleri değiştirilerek her bir algoritma için hata oranları hesaplanmıştır. Arıza dirençleri 1 Ω, 
+10 Ω, 20 Ω ve 30 Ω olarak seçilmiştir. Elde edilen sonuçlar Tablo 3.2’de özetlenmiştir. 
+
+ 
+
+Tablo 3.2. Homojen test sisteminde farklı arıza dirençlerindeki çeşitli arıza tipleri için yüzde 
+hata oranları 
+
+Arıza Yeri Bulma Algoritması 
+Tipi 
+
+Arıza Tipi 
+
+Arıza 
+Direnci 
+
+Takagi Algoritması 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+abc 
+0,0540 
+0,0029 
+0,0058 
+0,0086 
+0,5255 
+6,5516 
+15,9307 
+- 
+- 
+- 
+- 
+- 
+0,0001 
+0,0000 
+0,0000 
+0,0001 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,1705 
+3,5559 
+2,2189 
+10,6875 
+
+at 
+0,0616 
+0,0006 
+0,0020 
+0,0039 
+0,3934 
+3,6454 
+8,1682 
+- 
+0,0616 
+0,0001 
+0,0002 
+0,0002 
+0,0002 
+0,0002 
+0,0002 
+0,0002 
+0,0003 
+0,0003 
+0,0003 
+0,0003 
+0,0004 
+0,0005 
+0,0006 
+0,0007 
+- 
+- 
+ 
+- 
+
+bc 
+0,0896 
+0,0019 
+0,0029 
+0,0043 
+0,2287 
+2,9816 
+6,5516 
+- 
+- 
+- 
+- 
+- 
+0,0001 
+0,0001 
+0,0000 
+0,0000 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0002 
+0,0002 
+0,0002 
+- 
+- 
+- 
+- 
+
+bct 
+0,0540 
+0,0029 
+0,0058 
+0,0086 
+0,5255 
+6,5516 
+15,9307 
+- 
+13,9363 
+- 
+- 
+- 
+0,0001 
+0,0000 
+0,0000 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0002 
+0,0003 
+0,0003 
+0,0004 
+- 
+- 
+- 
+- 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+Tablo 3.2’de gösterilen sonuçlar, tek bara ölçümlerini kullanan algoritmaların genel olarak sadece çok 
+düşük arıza dirençlerinde kullanılabileceğini göstermektedir. İki bara ölçümlerini kullanan 
+algoritmalarda simetrik arıza yeri bulma algoritması dışında, yüksek arıza dirençlerinde bile sonuca 
+çok yakın değerler elde edebileceği görülmektedir. 
+
+Tek bara ölçümlerini kullanan algoritmalarda, genel duruma bakıldığında hata oranlarının genel 
+olarak arıza direnciyle doğrusal olarak arttığı gözlemlenir. Basit reaktans algoritmasında, çok düşük 
+arıza direnci değerlerinde hata oranı kabul edilebilir sınırlar içindedir. Takagi algoritmasının hata 
+oranlarının ne kadar iki bara ölçümüne dayalı algoritmalardan fazla olsa da %0,1 hata oranının altında 
+sonuçlar elde etmesiyle yüksek doğruluk yakaladığı görülüyor. Geliştirilmiş Takagi algoritmasında ise, 
+elde edilen sonuçlar irdelendiğinde faz-faz-toprak arıza tiplerinde hata oranlarının kabul edilebilir 
+değerlerin çok üstünde olduğu görülmektedir ancak faz-toprak arızalarındaki arıza yerini bulmadaki 
+doğruluğu nerdeyse iki bara ölçümünü kullanan algoritmalar kadar yüksektir. 
+
+İki bara ölçümlerini kullanan algoritmalarda, pozitif bileşenleri kullanan algoritmaların arıza direnci 
+artışından etkilendiği gözlenmektedir. Bu etki, en çok simetrik arıza yeri bulma algoritmasında 
+
+gözlenir, algoritmanın formülasyonu sadece pozitif bileşenlerden oluştuğundan arıza direncine karşı 
+hassastır, bu nedenle doğrusal bir artış göstermiş ve hata oranı Takagi algoritmasının bile çok üstünde 
+kalmıştır. Bu algoritmaya ek olarak asimetrik arıza yeri bulma algoritmasında da doğrusal bir artış 
+gözlenmektedir, ancak bu algoritmanın formülasyonu negatif bileşenler ağırlıklı olduğundan etki yok 
+sayılabilecek orandadır. Basit arıza gerilimi eşitliği algoritması ve negatif bileşenler ile arıza yeri bulma 
+algoritmasının verdiği sonuçların arıza direncinden etkilenmediği ve diğer algoritmalar ile 
+kıyaslandığında gerçek değere çok daha yakın sonuçlar elde ettiği görülmektedir. 
+
+3.2. Homojen Olmayan Test Sistemi  
+
+Homojen olmayan test sistemleri, kaynaklar ve hattın açılarının aynı değerde olmadığı sistemlerdir. 
+Bu farklılık baralardan ölçülen akım ve gerilim değerlerinin açı farkının iki bara içinde farklı değerde 
+olmasına yol açar. Bu açılar arası farkın dikkate alındığı algoritmalarda arıza yeri bulma doğruluğunu 
+etkilemezken, diğer algoritmalarda bir sapmaya yol açar. [9, 11, 16, 44] kaynaklarına göre uyarlanan 
+test sistemi, Şekil 3.2’de belirtildiği gibidir.  
+
+Şekil 3.2. Homojen olmayan test sistemi 
+
+Homojen olmayan test sistemi bir veya iki baradan alınan ölçüm değerlerini kullanan algoritmalar için 
+ilk olarak 20 km, 40 km, 50 km, 60 km, 80 km arıza yeri uzaklıkları için test edilmiştir. Tablo 3.3’de bu 
+arıza uzaklıklarındaki farklı arıza tiplerine göre hata oranları yüzde olarak verilmektedir. 
+
+Tablo 3.3. Homojen olmayan test sisteminde farklı uzaklıklardaki çeşitli arıza tipleri için yüzde hata 
+oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+Takagi Algoritması 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+abc 
+0,0279 
+0,0443 
+0,0514 
+0,0584 
+0,0723 
+0,0170 
+0,0246 
+0,0274 
+0,0298 
+0,0340 
+- 
+- 
+- 
+- 
+- 
+0,0005 
+0,0007 
+
+at 
+0,0058 
+0,0067 
+0,0073 
+0,0080 
+0,0105 
+0,0058 
+0,0068 
+0,0075 
+0,0083 
+0,0109 
+0,0057 
+0,0066 
+0,0072 
+0,0079 
+0,0104 
+0,0017 
+0,0006 
+
+bc 
+0,0279 
+0,0443 
+0,0514 
+0,0584 
+0,0723 
+0,0170 
+0,0246 
+0,0274 
+0,0298 
+0,0340 
+- 
+- 
+- 
+- 
+- 
+0,0005 
+0,0007 
+
+bct 
+0,0279 
+0,0443 
+0,0514 
+0,0584 
+0,0723 
+0,0170 
+0,0246 
+0,0274 
+0,0298 
+0,0340 
+0,2184 
+0,2626 
+0,2739 
+0,2833 
+0,3065 
+0,0005 
+0,0007 
+
+ 
+
+Arıza 
+Uzaklığı 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+0,0001 
+0,0005 
+0,0005 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0032 
+0,0023 
+0,0865 
+0,0047 
+0,0010 
+
+0,0001 
+0,0009 
+0,0026 
+0,0138 
+0,0052 
+0,0012 
+0,0033 
+0,0172 
+0,0025 
+0,0011 
+0,0001 
+0,0015 
+0,0043 
+- 
+- 
+ 
+- 
+- 
+
+0,0001 
+0,0005 
+0,0005 
+0,0163 
+0,0064 
+0,0004 
+0,0067 
+0,0260 
+0,0003 
+0,0005 
+0,0000 
+0,0007 
+0,0005 
+- 
+- 
+- 
+- 
+- 
+
+0,0001 
+0,0005 
+0,0005 
+0,0189 
+0,0072 
+0,0004 
+0,0076 
+0,0307 
+0,0012 
+0,0009 
+0,0000 
+0,0008 
+0,0011 
+- 
+- 
+- 
+- 
+- 
+
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+
+Sistemdeki açı farkı etkisini, en çok negatif bileşenli arıza yeri bulma algoritmasında gösterdiği, hata 
+oranının artmasından anlaşılmaktadır. Diğer yöntemlerde, değişimler gözlemlense de genel duruma 
+bakıldığında beklenenin aksine bir önceki test sisteminden daha iyi sonuçlar elde edildiği 
+anlaşılmaktadır. Bunun nedenleri olarak bu senaryonun arıza dirençsiz olması, hat ve kaynak 
+empedansları büyüklükleri ve açıları verilebilir. 
+
+Tek bara ölçümüne dayalı algoritmalarda, hata oranları beklenildiği gibi arıza yeri ile doğru orantılı 
+olarak bir artış göstermektedir. Basit reaktans yöntemi, genel olarak en iyi sonuçlara sahip, Takagi 
+yöntemi ise arıza öncesi akımı kullanmasına rağmen hata oranı az olsa da diğer algoritmalardan daha 
+fazla yanılma payına sahiptir. Geliştirilmiş Takagi algoritması ise, tek bara ölçümüne dayalı 
+algoritmalarda faz-toprak arıza tipinde en iyi sonucu vermektedir. 
+
+İki bara ölçümüne dayalı algoritmalarda, uzaklığa bağlı bir hata oranı artışı gözlenmektedir. Asimetrik 
+arızalarda, basit arıza gerilimi eşitliği algoritması ve asimetrik arıza yeri bulma algoritması yüksek 
+doğruluk oranı ile sonuca ulaşmaktadır. Simetrik arızalarda ise, genel olarak sonuçlar incelendiğinde 
+bu arıza tipinde, simetrik arıza yeri bulma algoritması yerine basit arıza gerilimi eşitliği algoritmasının 
+kullanılmasının hem düşük hata oranlarına sahip olması, hem de her arıza tipinde kullanılması 
+nedeniyle daha uygun olacağı görülmektedir. Negatif bileşenli arıza yeri bulma algoritması, tek bara 
+ölçümüne dayalı algoritmalar ile karşılaştırıldığında daha düşük hata oranıyla arıza yeri tespiti 
+yaparken diğer iki bara ölçümüne dayalı algoritmalar ile karşılaştırıldığında gerçek değere daha uzak 
+arıza yeri tespiti gerçekleştirmektedir. 
+
+Algoritmaların, homojen olmayan test sisteminde arıza direncine göre davranışlarını incelemek, için 1 
+Ω, 10 Ω, 20 Ω ve 30 Ω değerlerinde ki arıza dirençleri ile farklı arıza tiplerinde algoritmalar denenerek 
+sonuçları karşılaştırıldı. Hata oranları yüzde cinsinden Tablo 3.4’de verilmiştir. 
+
+Tablo 3.4. Homojen olmayan test sisteminde farklı arıza dirençlerindeki çeşitli arıza tipleri için 
+yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+abc 
+
+at 
+
+bc 
+
+bct 
+
+Arıza 
+Direnci 
+
+Takagi Algoritması 
+
+ 
+
+ 
+
+0,0103 
+
+0,0086 
+0,0181 
+0,0291 
+
+0,1553 
+
+1,1844 
+3,3014 
+5,1816 
+
+0,0229 
+
+0,0043 
+0,0086 
+0,0132 
+
+0,0103 
+
+0,0086 
+0,0181 
+0,0291 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+Tablo 3.4.(Devam) Homojen olmayan test sisteminde farklı arıza dirençlerindeki çeşitli arıza 
+tipleri için yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+Arıza 
+Direnci 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+abc 
+1,1245 
+14,9103 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,4290 
+5,3881 
+5,4728 
+9,0800 
+
+at 
+0,4300 
+4,8806 
+- 
+- 
+0,0030 
+1,2123 
+0,0001 
+0,0001 
+0,0001 
+0,0002 
+0,0001 
+0,0002 
+0,0012 
+0,0152 
+0,0017 
+0,0019 
+0,0001 
+0,0087 
+0,0002 
+0,0002 
+- 
+- 
+ 
+- 
+
+bc 
+0,5440 
+6,3806 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0004 
+0,0004 
+0,0005 
+0,0006 
+0,0000 
+0,0000 
+0,0001 
+0,0001 
+- 
+- 
+- 
+- 
+
+bct 
+1,1245 
+14,9103 
+- 
+- 
+16,9799 
+- 
+- 
+- 
+0,0001 
+0,0001 
+0,0001 
+0,0001 
+0,0004 
+0,0006 
+0,0008 
+0,0009 
+0,0000 
+0,0001 
+0,0001 
+0,0001 
+- 
+- 
+- 
+- 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+Test senaryosu, basit reaktans algoritmasının sadece çok düşük arıza direnci durumlarında 
+çalışabildiğini kanıtlayarak, arıza direnci ile doğrusal olarak hata oranlarının arttığını göstermiştir. 
+Buna ek olarak, homojen test sistemiyle karşılaştırıldığında, bir önceki senaryoda sadece negatif 
+bileşenli arıza yeri bulma algoritması üzerinde görülen açı farkı etkisi, Takagi algoritması üzerinde 
+hata oranının artmasına yol açmıştır. Bir önceki senaryoda, arıza direncinin dikkate alınmaması ve 
+Takagi algoritmasının açı eşitliğini kullanarak arıza direncini teorik olarak elemesi, iki senaryo 
+arasındaki Takagi algoritmasının sonuç değişimine neden olur. 
+
+Tek bara ölçümüne dayalı algoritmaları, bu sistemlerde kullanabilmek için Takagi algoritmasını ve faz-
+toprak arızalarında ise geliştirilmiş Takagi algoritmasının kullanılması gerekmektedir. Takagi 
+algoritması faz-toprak arızalarında yüksek hata oranı verirken, geliştirilmiş Takagi algoritması ise 
+sadece faz-toprak arızalarında gerçek arıza uzaklığına yakın değerler elde edebilmektedir. Ancak buna 
+rağmen hata oranları %1’in üstünde olmaktadır.  
+
+İki bara ölçümüne dayalı algoritmaların ise, simetrik arıza yeri bulma algoritması dışında doğruluk 
+oranları yüksektir. Basit arıza gerilimi eşitliği algoritması, bütün arıza tipi ve arıza dirençlerinde 
+maksimum %0,0002 hata oranı ile bu test senaryosunun en düşük hata oranını elde etmiştir. 
+
+3.3. Homojen Olmayan Test Sistemi (Orta Uzun Hat Modeli - Pi Eşdeğer Devresi) 
+
+Bu test sisteminde, iletim hattının kapasitif etkisi ihmal edilmemiş olup, orta uzunlukta iletim hattı 
+modeli (pi eşdeğer devresi) baz alınarak hat modeli oluşturulmuştur [11]. Bu test sisteminin başlıca 
+amacı, admitans etkisinin algoritmalara etkisini irdelemektir. Algoritmalar farklı hat modelleri için 
+geliştirilebilecek olsa da, bu durum formülasyon kısmını daha karmaşık hala getirecek, sistemden ek 
+bilgiler talep ederek hesaplama yükünü arttıracaktır. Bunun için doğru sonuca en az hata oranıyla 
+ulaşan ve arıza direnci, hat modeli gibi değişkenlerden minimum seviyede etkilenecek bir metoda 
+ulaşmak arıza yeri bulma algoritmalarının temel amacıdır. Test sistemi Şekil 3.3’te verilmiştir, test 
+sisteminde iletim hattı 100 km olarak alınmıştır.  
+
+Şekil 3.3. Homojen olmayan test sistemi (pi modeli) 
+
+Bu test senaryosundaki temel amaç, özellikle tek bara ölçümlerini kullanan algoritmaların uzaklığa 
+bağlı olarak hattın admitansından ne düzeyde etkileneceği ve buna bağlı olarak hata oranlarının 
+değişimini gözlemlemektir. Değerlendirme sonuçları Tablo 3.5’te verilmiştir. Test sistemi, ilk önce 20 
+km, 40 km, 50 km, 60 km ve 80 km uzaklıklarında farklı arıza tipleri için analiz edilmiş ve her bir 
+algoritma için bu durumlar değerlendirilmiştir.  
+
+Tablo 3.5. Homojen olmayan test sisteminde (orta uzun hat modeli - pi eşdeğer devresi) farklı 
+uzaklıklardaki farklı arıza tipleri için yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+Takagi Algoritması 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+abc 
+0,0025 
+0,0272 
+0,2755 
+0,0969 
+0,2581 
+0,0173 
+0,0045 
+0,2379 
+0,0668 
+0,2119 
+- 
+- 
+- 
+- 
+- 
+
+0,0828 
+0,0474 
+0,1055 
+0,0246 
+0,0709 
+
+at 
+0,0041 
+0,0015 
+0,1423 
+0,0965 
+0,2775 
+0,0041 
+0,0010 
+0,2210 
+0,0929 
+0,2666 
+0,0041 
+0,0012 
+0,1463 
+0,0964 
+0,2786 
+
+0,0886 
+0,0798 
+0,1428 
+0,0184 
+0,0915 
+
+bc 
+0,0025 
+0,0272 
+0,2755 
+0,0969 
+0,2581 
+0,0173 
+0,0045 
+0,2379 
+0,0668 
+0,2119 
+- 
+- 
+- 
+- 
+- 
+
+0,0828 
+0,0474 
+0,1055 
+0,0246 
+0,0709 
+
+bct 
+0,0025 
+0,0272 
+0,2755 
+0,0969 
+0,2581 
+0,0173 
+0,0045 
+0,2379 
+0,0668 
+0,2119 
+- 
+- 
+- 
+- 
+- 
+
+0,0828 
+0,0474 
+0,1055 
+0,0246 
+0,0709 
+
+ 
+
+Arıza 
+Uzaklığı 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0319 
+0,0135 
+0,2787 
+0,0559 
+0,0973 
+
+0,0256 
+0,0240 
+0,0043 
+0,0235 
+0,0336 
+0,0622 
+0,0474 
+0,2870 
+0,0350 
+0,0268 
+- 
+- 
+ 
+- 
+- 
+
+0,0621 
+0,0197 
+0,0016 
+0,0183 
+0,0640 
+0,0683 
+0,1382 
+0,1005 
+0,0223 
+0,0659 
+- 
+- 
+- 
+- 
+- 
+
+0,0692 
+0,0158 
+0,0001 
+0,0175 
+0,0704 
+0,0923 
+0,2731 
+0,2217 
+0,0362 
+0,0728 
+- 
+- 
+- 
+- 
+- 
+
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+20 km 
+40 km 
+50 km 
+60 km 
+
+80 km 
+
+Daha önceki test sistemleri ile karşılaştırıldığında, bu test sisteminde, hat admitansı pi eşdeğer devre 
+modeli baz alınarak modellenmiştir. Bu admitans, Şekil 3.3 ile de anlaşılacağı gibi uzaklığa bağlı bir 
+etkidir. Özellikle tek bara ölçümüne dayalı algoritmalarda uzaklık arttıkça hata oranları artışından 
+admitansın etkisi gözlenebilmektedir. İki bara ölçümüne dayalı algoritmalarda ise bu etki uzaklıklığa 
+bağlı olarak gözlenmez ancak diğer test sistemlerindeki sonuçlar ile karşılaştırıldığında genel bir hata 
+oranı artışı ile etki anlaşılmaktadır. 
+
+Tek bara ölçümüne dayalı algoritmalarda, Takagi algoritması ve geliştirilmiş Takagi algoritması arıza 
+uzaklığı arttıkça arıza yeri sonuçlarının doğruluğu basit reaktans algoritmasının sonuçlarının 
+doğruluğundan daha düşük seviyede kalmaktadır. Basit reaktans algoritmasının arıza dirençsiz, 
+sadece arıza uzaklığı değişimine bağlı bu senaryoda iletim hattının kapasitif admitansından en az 
+seviyede etkilendiği bu gözleme dayanarak söylenebilir. 
+
+İki bara ölçümüne dayalı algoritmalarda, hata oranı genel olarak düşük olsa da negatif bileşenli arıza 
+yeri bulma algoritmasının gerçek arıza yeri uzaklığına daha yakın sonuçlara ulaştığı gözlenmektedir. 
+Negatif bileşenli arıza yeri bulma algoritmasının Bölüm 3.2’den homojen olmayan sistemlerde diğer 
+iki bara ölçümüne dayalı algoritmalardan daha yüksek hata oranına sahip olduğu Tablo 3.3’ten 
+gözlemlenebilir. Ancak Tablo 3.5’teki sonuçlara göre sadece negatif bileşenleri kullanan algoritma hat 
+admitansından daha az etkilenmiştir. 
+
+Algoritmaların, homojen olmayan pi eşdeğer devreli test sisteminde arıza direncine göre 
+davranışlarını incelemek için, 50 km arıza uzaklığında 1 Ω, 10 Ω, 20 Ω ve 30 Ω değerlerindeki arıza 
+dirençleri ile farklı arıza tiplerinde algoritmalardan elde edilen sonuçları Tablo 3.6’da verilmiştir. 
+
+Tablo  3.6.  Homojen  olmayan  pi  eşdeğer  devreli  test  sisteminde  farklı  arıza  dirençlerindeki 
+çeşitli arıza tipleri için yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+abc 
+0,2472 
+0,6616 
+1,1415 
+1,5352 
+
+at 
+0,0716 
+0,3655 
+0,7160 
+1,0060 
+
+bc 
+0,2542 
+0,3900 
+0,6616 
+0,6108 
+
+bct 
+0,2472 
+0,6616 
+1,1415 
+1,5352 
+
+Arıza 
+Direnci 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+Takagi Algoritması 
+
+ 
+
+ 
+
+Tablo  3.6.(Devam)  Homojen  olmayan  pi  eşdeğer  devreli  test  sisteminde  farklı  arıza 
+dirençlerindeki çeşitli arıza tipleri için hata oranları 
+
+Arıza Yeri Bulma Algoritması Tipi 
+
+Arıza Tipi 
+
+Arıza 
+Direnci 
+
+Basit Reaktans Algoritması 
+
+Geliştirilmiş Takagi Algoritması 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+Negatif Bileşenler ile Arıza Yeri 
+Bulma Algoritması 
+
+Asimetrik Arıza Yeri Bulma 
+Algoritması 
+
+Simetrik Arıza Yeri Bulma 
+Algoritması 
+
+abc 
+1,1049 
+10,5801 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0597 
+0,0045 
+0,0119 
+0,0197 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+0,5487 
+0,9691 
+5,8025 
+14,0705 
+
+at 
+0,8592 
+6,1480 
+- 
+- 
+0,1120 
+0,0230 
+0,0888 
+0,1385 
+0,1230 
+0,0335 
+0,0031 
+0,0087 
+0,0032 
+0,0071 
+0,0094 
+0,0101 
+0,2343 
+0,0156 
+0,0263 
+0,0385 
+- 
+- 
+- 
+- 
+
+bc 
+0,4434 
+5,7863 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0794 
+0,0070 
+0,0045 
+0,4422 
+0,0044 
+0,0072 
+0,0074 
+0,0700 
+0,0742 
+0,0021 
+0,0093 
+0,3134 
+- 
+- 
+- 
+- 
+
+bct 
+1,1049 
+10,5801 
+- 
+- 
+- 
+- 
+- 
+- 
+0,0597 
+0,0045 
+0,0119 
+0,0197 
+0,0058 
+0,0121 
+0,0139 
+0,0139 
+0,1538 
+0,0073 
+0,0535 
+0,0685 
+- 
+- 
+- 
+- 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+1 Ω 
+10 Ω 
+20 Ω 
+30 Ω 
+
+Test senaryosu, hem hattın kapasitesini hem de arıza direncini dikkate almasıyla algoritmalarda genel 
+olarak diğer test sistemlerine göre bir hata oranı artışına yol açmıştır.  
+
+Tek bara ölçümünü kullanan algoritmaların, sonuçları incelendiğinde basit reaktans yöntemi en düşük 
+arıza direncinde bile %1 değerini aşarak, bu test senaryosunun algoritma üzerindeki etkisini ortaya 
+koymaktadır. Basit reaktans algoritmasının, bu senaryo için kullanımı yüksek hata oranlarına neden 
+olurken, Takagi yöntemi de %1 hata oranını aştığı görülmektedir. Sadece geliştirilmiş Takagi 
+algoritması, yüksek doğruluk oranını korumaktadır. 
+
+Bölüm 3.2’de negatif bileşenli arıza yeri bulma algoritmasının, homojen olmayan sistemlerde arıza 
+yeri bulma sonucundaki isabet oranının düştüğü görülmektedir, ancak Tablo 3.6’da görüldüğü gibi 
+iletim hattının admitansından en az seviyede etkilendiği gözlenmektedir, ayrıca bu senaryodaki en 
+düşük hata oranları da bu algoritma ile elde edilmiştir. Asimetrik arızalarda, basit arıza gerilimi eşitliği 
+algoritması ve asimetrik arıza yeri bulma algoritması genel duruma bakıldığında birbirine yakın ve 
+yüksek isabetli sonuçlar verirken, simetrik arızalarda basit arıza gerilimi eşitliği algoritmasının simetrik 
+arıza yeri bulma algoritmasına üstün geldiği görülmektedir. 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+4. SERİ KAPASİTÖRLÜ İLETİM HATLARINDA ARIZA YERİ TESPİTİ 
+
+Arıza yeri tespiti, iletim hatlarının işlevsel ve güvenilir olabilmesi için önemli etkenlerdendir. Bölüm 
+2’de, çoğunlukla kullanılan arıza yeri bulma algoritmaları verilmekte, Bölüm 3’teki simülasyon 
+sonuçları incelendiğinde test sistemindeki en küçük bir değişimin bile bu algoritmaların sonuçlarını ne 
+derece etkileyebildiği görülmektedir. Seri kapasitör gibi, iletim hatlarında sıklıkla kullanılan bir etken 
+söz konusu olduğunda bu algoritmalar kullanılamaz duruma gelecektir. 
+
+Seri kapasitörler, iletim hatlarında güç transferi kabiliyetini, geçici transient kararlılığını ve hat 
+kayıplarını iyileştirirler [47, 48]. Seri kapasitörler, metal oksit varistör (MOV) ile birlikte kullanılırlar. 
+MOV, seri kapasitöre paralel bağlanır ve değişken omik direnç etkisi gösterir. MOV’un kullanım amacı, 
+seri kapasitörün üzerinde oluşabilecek aşırı gerilimlerden seri kapasitörü korumaktır. Gerilim 
+yükselmesi durumunda, MOV’un üzerindeki direnç düşerek seri kapasitörden geçecek akımı kendi 
+üstüne alır. MOV lineer olmayan bir bileşendir, MOV’un bu lineer olmayan karakteristiği arıza yeri 
+bulma algoritmalarını doğrudan etkiler ve standart yöntemler kullanıldığında arıza yeri bulma 
+algoritmalarında yüksek hatalı sonuçlara neden olur. İletim hatlarında seri kapasitör kullanımı 
+durumunda, seri kompanzasyonun etkileri ve bunun sonuçları Tablo 4.1’de verilmiştir. 
+
+Tablo 4.1. Seri kompanzasyonun etkileri ve sonuçları [20] 
+
+Seri Kompanzasyonun Etkileri 
+
+Seri Kompanzasyonun Etkilerinin Yol Açacağı 
+Sonuçlar 
+
+Seri kompanzasyon noktasında ani hat 
+empedansı değişimi 
+Aşırı gerilim koruması için MOV kullanılması 
+
+ 
+
+Gerilim değişimi 
+Akım değişimi 
+Alt harmonik frekans 
+
+Dengesiz hat empedansı 
+
+-Düşük arıza akımı: empedans=kapasitif 
+reaktans 
+-Aşırı arıza akımı: empedans=paralel kapasitif 
+reaktans + MOV direnci 
+Gerilim faz açısının 90°’den fazla değişmesi 
+Akım faz açısının 90°’den fazla değişmesi 
+Hat endüktif reaktansı ve seri kapasitör 
+birleştirilmesi sonucunda üretilir 
+Yüklenme veya transpoze olmama 
+durumlarından oluşan dengesiz durumu daha 
+da arttırır 
+
+Seri kapasitörlü sistemlerde, arıza analizi yapabilmek için birçok algoritma geliştirilmiştir. Bu 
+algoritmalardan bazıları, arıza öncesi değerleri kullanarak [8], MOV karakteristiğine ihtiyaç duyarak 
+[24] veya sadece simetrili bileşenleri kullanarak [14, 25] arıza yerini tespit etmeye çalışırlar.  
+
+Seri kapasitörlü sistemlerde arıza yeri bulma algoritmalarını üç ana başlık altında ifade edebiliriz; 
+yürüyen dalga teorisine dayalı algoritmalar, zaman domenine dayalı hat modeli kullanan algoritmalar 
+ve fazör ölçüm birimine (phasor measurement unit) (PMU) dayalı algoritmalar. Bu üç ana başlık 
+dışında bu genellemeler içinde sayılabilecek ancak işleyiş yapısı olarak daha karmaşık olan ve 
+öğrenme temeline dayanan yapay zeka uygulamaları da vardır. Seri kompanze edilmiş iletim 
+sistemleri için kullanılan bazı algoritmalar ve özellikleri Tablo 4.2’de verilmiştir. 
+
+Tablo  4.2.  Seri  kompanze  edilmiş  iletim  sistemleri  için  kullanılan  bazı  algoritmalar  ve 
+özellikleri [20] 
+
+Makale 
+
+Rapor Edilen 
+Algoritma Tipi 
+
+Veri 
+Gereksinimi 
+
+Dikkate 
+Alınan Test 
+Durumları 
+
+Novosel (1996) 
+[49] 
+
+Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+ 
+a)Fazörel 
+yaklaşım 
+ 
+ 
+ 
+ 
+b)DDA 
+(Deterministic
+Differential 
+Approach) 
+yaklaşımı 
+ 
+c)ANN 
+yaklaşımı 
+
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+
+ 
+ 
+ 
+ 
+ 
+1 Periyot 
+ 
+ 
+ 
+ 
+ 
+1 Periyot 
+ 
+ 
+ 
+ 
+ 
+1 Periyot 
+veya daha 
+fazlası 
+1 Periyot 
+veya daha 
+fazlası 
+
+1 Periyot 
+ 
+
+ 
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+ 
+ 
+ 
+12 
+
+Az 
+
+Az 
+
+1,25 Periyot 
+ 
+
+1944 
+
+Girgis (1998) [50] 
+
+Ghassemi (1998) 
+[51] 
+
+Saha (1999)  [24] 
+
+Giriş Değişkenleri 
+
+ 
+ 
+ 
+ 
+ 
+-Üç faz akımlar 
+-Boşluk ani akımı 
+-MOV geriliminin 
+koruma tepe değeri 
+ 
+ 
+-Hat akımları 
+ 
+ 
+ 
+ 
+ 
+-Standartlaştırılmış 
+hat akım örnekleri 
+-Hat akımları farkı 
+-Üç faz akım ve 
+gerilim 
+
+-Gerilim ve akımlar 
+
+-Arıza tipi 
+-Üç faz akım 
+ölçümleri 
+-Üç faz yerel 
+(referans bara) arıza 
+öncesi akım 
+değerleri 
+-Üç faz gerilimleri 
+
+Seri Kapasitörün Dikkate 
+Alınma Durumu 
+
+ 
+ 
+ 
+ 
+ 
+-Goldsworthy (1987) [55] 
+Doğrusallaştırılmış SC-MOV 
+modeli 
+ 
+ 
+ 
+-DDA tabanlı zaman 
+domeninde kompansatör 
+gerilim tahmini 
+ 
+ 
+ 
+-ANN tabanlı kompansatör 
+gerilim tahmini 
+
+-Kalman filtresi tabanlı 
+kompansatör gerilim 
+tahmini 
+
+-Goldsworthy (1987) [55] 
+SC-MOV modeli 
+ 
+
+-Kapasitör öncesi veya 
+sonrasında oluşabilecek 
+arıza durumu için, iki ayrı 
+algoritma arıza 
+empedansının tahmini için 
+kullanılır 
+
+ 
+
+ 
+
+Tablo 4.2.(Devam) Seri kompanze edilmiş iletim sistemleri için kullanılan bazı algoritmalar ve 
+özellikleri [20] 
+
+Rapor Edilen 
+Algoritma Tipi 
+
+Veri 
+Gereksinimi 
+
+Dikkate 
+Alınan Test 
+Durumları 
+8 
+
+Giriş Değişkenleri 
+
+-Üç faz akım ve 
+gerilim ölçümleri 
+
+Makale 
+
+Sadeh (2000) 
+[30] 
+
+Chi-Shan (2002) 
+[23] 
+
+Cheong (2004) 
+[52] 
+
+Al-Dabbagh 
+(2005) 
+[53] 
+
+Sadeh (2010) 
+[31] 
+
+Yusuff (2011) 
+[38] 
+
+Ahsaee (2011) 
+[32] 
+
+Apostolopoulos 
+(2012) 
+[54] 
+
+Abdelaziz (2013) 
+[27] 
+
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+-İki baradan 
+alınan 
+ölçümlere 
+dayalı 
+-Tek baradan 
+alınan 
+ölçümlere 
+dayalı 
+
+1 Periyot 
+ 
+
+1 Periyot 
+ 
+
+5 Periyot 
+(arıza sonrası) 
+ 
+
+Arıza öncesi 
+ve sonrası 
+veriler 
+ 
+
+500 
+
+600 
+
+90 
+
+1,5 Periyot 
+arıza sonrası 
+sinyal 
+ 
+1 Periyot 
+ 
+
+60 
+
+66 
+
+1 Periyot  
+
+200 
+
+1 Periyot 
+ 
+
+az 
+
+Seri Kapasitörün Dikkate 
+Alınma Durumu 
+
+-Kapasitör öncesi veya 
+sonrasında oluşabilecek 
+arıza durumu için, iki ayrı 
+algoritma arıza 
+empedansının tahmini için 
+kullanılır 
+- Seri kapasitör için bir 
+hesaplama gerektirmiyor 
+-Kapasitör pozisyonundan 
+bağımsız 
+Yok 
+
+-Seri kompanzasyon için bir 
+model belirlendi 
+-Kapasitör koruma 
+seviyesinde akım tabanlı 
+MOV iletimi tahmini 
+uygulanır 
+Yok 
+
+-Üç faz akım ve 
+gerilim ölçümleri (iki 
+baradan) 
+
+-Üç faz akım ve 
+gerilim 
+
+-Üç faz akım ve 
+gerilim 
+
+-Üç faz gerilim 
+
+Yok 
+
+-Üç faz akım ve 
+gerilim 
+
+Yok 
+
+-Üç faz akım (iki 
+baradan) 
+-Üç faz gerilim (uzak 
+baradan) 
+-Üç faz akım ve 
+gerilim ölçümleri (iki 
+baradan) 
+
+-Arıza yeri bulma, iki model 
+bileşen matrisleri ile 
+tanımlandı 
+
+-Küçük kareler yöntemi 
+tabanlı SC-MOV modeli 
+
+1 Periyot 
+ 
+
+108 
+
+-Üç faz akım ve 
+gerilim 
+
+Moravej (2012) 
+[41] 
+
+1 Periyot 
+ 
+
+6280 
+
+-Üç faz akım ve 
+gerilim 
+
+-Destek vektör regresyonu 
+tabanlı yaklaşım 
+
+Yürüyen dalga teorisine dayalı algoritmalar güç sistemi yapılandırmalarından bağımsızdır [23]. Bu 
+nedenle bu algoritmalar seri kapasitörlü iletim hatları için de uygundur. Ayrıca söz konusu 
+algoritmalar, arıza tipinden, arıza direncinden ve arıza başlangıç açısından bağımsız olacak şekilde 
+geliştirilmiştir. Buna ek olarak, iki bara arasındaki senkronizasyon problemini ortadan kaldırmak için, 
+genelde tek baradan alınan ölçümleri kullanılır. Yüksek örnekleme frekansı talebi ve arıza yerinden ve 
+uzak baradan yansıyan dalgaların seçiminde karşılaşılan zorluklar, bu algoritmaların olumsuz 
+özelliklerindendir. 
+
+Zamana dayalı hat modelini baz alan algoritmalar, seri kapasitörlü iletim hatları için de geliştirilmiştir. 
+Bu geliştirilmiş algoritmaların bazıları arıza direnci, arıza başlangıç açısı gibi değişkenlerden 
+etkilenmezler. Ancak bu tip algoritmalar yakın ve uzak baradan senkron akım ve gerilim ölçümleri 
+talep ederler. 
+
+PMU tabanlı algoritmalar, basit yapıları nedeniyle tercih edilirler, ayrıca güç sisteminin ihtiyacına göre 
+geliştirmeye açık bir yapıları da vardır. Tek veya iki baradan alınan ölçüm değerlerini kullanırlar. Bu 
+algoritmalar doğruluk oranlarını, arıza öncesi veriler, kaynak empedansları, akım tabanlı MOV 
+empedansı değerleri gibi değişkenler kullanılarak arttırılabilirler. 
+
+Yapay zeka uygulamaları karar verme, öğrenme ve karşılaştırma gibi insan davranışlarının makinalar 
+tarafından da uygulanabilir olmasını amaçlar. Kesinlik, adaptasyon ve gelişim bu tip algoritmaların 
+önemli noktalarındandır. Ancak bu algoritmalar öğrenme zamanı ve belirli miktarda veri tabanı talep 
+eder, ayrıca kompleks yapıdadırlar. Bu algoritmalar, tek veya iki bara verilerini kullanabilir. Arıza yeri 
+tespitinde hibrit teknikler kullanılır. Aşırı öğrenme makinesi, destek vektör regresyonu, adaptif 
+sinirsel bulanık çıkarım sistemi ve parçacık sürü optimizasyonu ile dalgacık dönüşümleriyle birlikte 
+kullanılması, hibrit yöntemlere örnek gösterilebilir. 
+
+Zaman domeninde, başka bir arıza yeri bulma algoritması da [53] geliştirilmiştir. Bu algoritma ANN 
+algoritması ile karşılaştırıldığında daha iyi arıza yeri tahmini yapmaktadır [20]. Ancak, arıza öncesi ve 
+sonrası verilere bağlı olarak arıza yerini hesaplar. 
+
+Bahsedilen algoritmalar incelendiğinde, yüksek miktarda veri ihtiyacı ve uygulaması zor hesaplamalar 
+bulunmaktadır. Daha az formülasyon kullanımı için PMU baz alınarak tasarlanmış ve iki baradan 
+okunan akım, gerilim ölçümleri ve hat bilgileri dışında ek bir değişkene ihtiyacı olmayan bir algoritma, 
+bu tez kapsamında geliştirilmiştir. 
+
+ 
+
+ 
+ 
+ 
+ 
+5. SERİ KAPASİTÖRLÜ İLETİM HATLARI İÇİN PERFORMANSA DAYALI ARIZA YERİ BULMA 
+ALGORİTMASI 
+
+Bu tez kapsamında geliştirilen algoritma, iterasyon tabanlı olup, iki baradan alınan gerilim ve akım 
+ölçümleri ve hat karakteristiği bilgisi ile arıza yerini tespit etmektedir. Algoritma, arıza öncesi veriler, 
+akıma dayalı empedans matrisi, kaynak empedansları gibi ek değişkenlerin bilinmesine ihtiyaç 
+duymaz. Seri kompanze edilmiş iletim hattı pi eşdeğer devresi ile modellenmiş olup şematik gösterimi 
+Şekil 5.1’de verilmiştir.  
+
+Seri kapasitörlü iletim hattı 
+
+Şekil 5.1. 
+
+Algoritma, bara gerilim ve akımları (VS, VR, IS, IR), seri kapasitörün baralara göre uzaklıkları (dCapS, 
+dCapR), hat empedansı (Z) ve admitansı (Y) biliniyor olarak varsayar.  
+
+Arızanın oluşum yeri ve kapasitörün konumu dikkate alındığında, iki senaryo durumu bulunmaktadır; 
+arızanın kapasitörden önce veya sonra meydana gelmesi. Bu iki senaryo için de farklı hesaplamalar 
+kullanılması gerekmektedir. Algoritma, bu nedenle iki durumu ilk önce birbirinden bağımsız olarak ele 
+almış ve hesaplamaları gerçekleştirmiş ve daha sonra senaryonun doğruluğunu test etmiştir. 
+
+Arızanın seri kapasitör ve referans alınan (S) barası arasında oluştuğu (arızanın seri kapasitör öncesi 
+oluşma durumu) Şekil 5.2’de gösterilmiştir. Arıza yerinin, S barasına uzaklığı dS değişkeni olarak 
+gösterilmiştir.  
+
+Şekil 5.2. Arıza yerinin S barası ve seri kapasitör arasında olma durumu 
+
+ 
+
+Arıza yerini tayin etmek için, önce arıza gerilimi (VF) ve arıza akımının (IF) hesaplanması gerekir. Arıza 
+akımı, Şekil 5.2’den de görüleceği gibi referans ve uzak baradan gelen iki akım bileşeninden 
+oluşmaktadır. Arıza gerilimi ve akımın, referans baradan gelen bileşeni sadece referans baranın akım 
+ve gerilim değerleri ele alınarak elde edilir; 
+
+VSVRSeri KapasitörISIRdCapSdCapR1VSVRSeri KapasitörISIRdSVFIFSIFRdRICapVCapDaha sonraki adım ise, arıza akımının uzak baradan gelen bileşeninin eldesidir. Bunun için öncelikle 
+arıza noktası ile kapasitör arasındaki empedansı elde etmemiz gerekir. Bu elde etme işlemi için 
+kapasitör öncesindeki gerilim (VCap) ve akım (ICap) değeri hesaplanmalıdır;  
+
+Denklem (5.2) eşitliğinin sonuçlarını kullanarak arıza noktasının gerilim ve akımının, seri kapasitörün 
+gerilim ve akımına bağlı ifadesi elde edilir; 
+
+ 
+
+(5.1) 
+
+ 
+
+(5.2) 
+
+ 
+
+(5.3) 
+
+Denklem (5.3)’te verilen matriste, VF eşitliğini kullanarak arıza noktası ve seri kapasitör arasındaki 
+empedans hesaplanır; 
+
+ 
+
+(5.4) 
+
+Denklem (5.3)’te verilen matriste, -IFR eşitliği ve Denklem (5.4)’ta elde edilen empedans kullanılarak 
+arıza akımının uzak uçtan gelen bileşeni elde edilir; 
+
+ 
+
+(5.5) 
+
+Denklem (5.5) ve Denklem (5.1)’de elde edilen akım değerleri toplanılarak arıza akımı değerine 
+ulaşılır; 
+
+ 
+
+(5.6) 
+
+()()()()()()()()()sssFSFSSssssssZdYd1Zd2VVIIZdYdYdZdYdYd142+=−−++()()()()()()()()()CapRCapRCapRCapRCapRCapRCapRCapRCapRCapRCapRZdYd1Zd2VVIIZdYdYdZdYdYd142+=−−++()()()()()()()2CapFSCapRCapFSCapRCapF2SCapRCapFRCapFSCapR3CapFSCapRYZ(1dd)1Z(1dd)2VVY(1dd)IIYZ1dd1YZ1dd24−−−−−−+−−=−−+−−−−+−−FCapCapF2SCapRCapSCapRCapVVZY(1dd)V(1dd)I2−−=−−−−−23CapFSCapRFRCapSCapR2CapFSCapRCapZY(1dd)IV((Y(1dd)))4ZY(1dd)(1)I2−−−−=−−−+−−++FFRFSIII=+Bu algoritmada, arıza direnci omik olarak varsayılmıştır. Bu varsayıma göre; eğer ele alınan dS arıza 
+noktası ise hesaplanan arıza gerilimi ve akımı arasındaki açı farkının sıfır olması gerekir. Ancak 
+algoritma iterasyon tabanlı olduğundan hesaplanan açı farkı tam sıfır olarak elde edilemez, 
+hesaplanan açı farkında belli bir hata oranı olacaktır (ε). Seçilen dS uzaklığı arıza noktası ise Denklem 
+(5.7) eşitliğini sağlamalıdır;   
+
+ 
+
+(5.7) 
+
+İki senaryo için de ayrı ayrı bara ( 1. senaryo için referans bara, 2. senaryo için uzak bara) ile seri 
+kapasitör arasındaki uzaklık önceden seçilen bir iterasyon adımı ile arıza noktası için taranır, en küçük 
+hata oranını veren (sıfıra en yakın sonucu elde eden) nokta arıza yeri alınır. Seri kapasitör öncesi arıza 
+durumu için dS, kapasitör sonrası durum için dR değerleri olarak minimum hatayı veren potansiyel 
+arıza yeri uzaklıkları iki senaryo için de atanır. 
+
+Son olarak, senaryo doğruluğu test edilmelidir. Seri kapasitör ve MOV’un doğrusal olmayan davranışı 
+
+ empedansının omik ve reaktif bileşenin de üzerinden akan akıma bağlı bir değişime yol 
+
+açmaktadır. Empedansın reaktif bileşeni arıza noktasına bağlı olarak pozitif veya negatif değeri 
+alabilir, ancak omik bileşen pozitif olmak zorundadır, bu şartı sağlayan senaryo doğru olarak alınır; 
+
+ 
+
+(5.8) 
+
+Denklem (5.8), kapasitör geriliminin (
+
+) arıza geriliminden (VF)  daha büyük olması gerektiği 
+
+gerçeği baz alınarak oluşturulmuştur. 
+
+Arızanın kapasitör sonrasında olduğu senaryo için ise R barası referans bara ve S barası uzak bara 
+olarak düşünülür. Bu durum baz alındığında, yukarıda kullanılan denklemler için VS, IS, VR, IR, dCapS, dR, 
+değişkenleri sırasıyla VR, IR, VS, IS, dCapR, dS ile değiştirilerek 2. senaryoya görede arıza uzaklığı 
+hesaplanır. Alınan performansa dayalı algoritmanın akış diyagramı Şekil 5.3’te verilmiştir. 
+
+FFaçı(V)açı(I)min()−=CapFZ−CapFreel(Z)0−CapVŞekil 5.3. Performansa dayalı alınan algoritmanın akış diyagramı 
+
+ 
+
+5.1. Algoritmanın Temel Arıza Yeri Bulma Algoritmaları İle Karşılaştırması  
+
+Temel algoritmalar, seri kapasitör ve MOV’un etkilerini dikkate almadığı için belli bir hata oranı artışı 
+durumu ortaya çıkacaktır. Ancak bu artışın, kabul edilebilirliğini belirlemek ve seri kapasitörlü iletim 
+hatları için özel bir algoritmanın geliştirilmesinin gerekliliğini göstermek için benzetim çalışması 
+yapılmıştır. Bu amaçla, DigSILENT programı kullanılarak bir uygulama yapılmıştır. Bu sistemden alınan 
+akım ve gerilimler, MATLAB ortamında oluşturulmuş algoritmalar için kullanılmışlardır. Test sistemi 
+özellikleri ve simülasyon parametreleri Tablo 5.1 ve Tablo 5.2’de, test sistemi ise Şekil 5.4’te 
+verilmiştir. 
+
+VS,VR,IS,IR  ölçülen değerler, dCapS, dCapR,  Hat empedansı, admitansı ve hat uzunluğu biliniyor VF,IFS,IFR hesaplanırVF,IFS,IFR hesaplanırArıza uzaklığı=dR Senaryo 1Senaryo 2Arıza seri kapasitör ile S barası arasındaArıza seri kapasitör ile R barası arasındads değeri atanırdR değeri atanırArıza uzaklığı=dSReel(Zcap-F)>0Reel(Zcap-F)>0min(Ɛ)yi sağlayan ds değeri alınıraçı(VF)-açı(IF)=Ɛaçı(VF)-açı(IF)=Ɛmin(Ɛ)yi sağlayan dR değeri alınırTablo 5.1. Test sistemi parametreleri [56,57] 
+
+Şebeke 
+
+Seri Kapasitöre sahip 
+İletim Hattı 
+
+Transformatör 
+
+Senkron Generatör 
+
+X0/X1 
+
+3 
+
+37,2 Ω 
+
+Faz Açısı  0° 
+
+xd’’ 
+
+0,12 pu 
+
+Kısa 
+Devre 
+Gücü 
+
+2 GVA – 
+24 GVA 
+
+R1/X1 
+
+0,1 
+
+R1 
+
+8,1 Ω 
+
+255 MVA 
+
+Anma 
+Gücü 
+
+82,8 Ω 
+
+Bağlantı 
+Grubu 
+
+YN-YN 
+
+ 
+
+X1 
+
+R0 
+
+X0 
+
+Nominal 
+Görünür 
+Gücü 
+
+Nominal 
+Gerilimi 
+
+255 
+MVA 
+
+19 kV 
+
+R0/X0 
+
+0,1 
+
+253,5 Ω 
+
+Anma 
+Gerilimi 
+
+380 kV/19 
+kV 
+
+x0 
+
+0,1 pu 
+
+ 
+
+Uzunluk 
+
+300 km 
+
+uk0 
+
+13% 
+
+Güç 
+Faktörü 
+
+0,8 
+
+uk 
+
+16% 
+
+Bağlantı  YN 
+
+Bakır 
+Kayıpları 
+
+310 kW 
+
+ 
+
+Tablo 5.2. Test sisteminin simülasyon parametreleri 
+
+B1 
+barasına 
+150 km 
+
+Seri 
+Kapasitörün 
+(ve 
+MOV’un) 
+Konumu 
+
+ 
+
+Simülasyon zamanı 
+
+Arıza anı 
+
+Örnekleme frekansı 
+
+İterasyon adımı 
+
+0,2 sn 
+
+0,02 sn 
+
+10 kHz 
+
+10-4 
+
+Şekil 5.4. Seri kapasitörlü test sistemi 
+
+ 
+
+Bu test sistemindeki seri kapasitör ve MOV karakteristiği, [24, 25, 58] kaynakları baz alınarak 
+oluşturulmuştur. Seri kapasitör ve MOV arasındaki ilişkiyi daha iyi anlayabilmek için örnek bir arıza 
+durumundaki MOV ve seri kapasitörün üzerinden geçen akımın davranışı Şekil 5.5’te verilmiştir (MOV 
+karakteristiği Ek-A kısmında verilmiştir). 
+
+Senkron GeneratörB1B2ŞebekeSeri KapasitörTransformatörMOV ve seri kapasitörde ki akım değişimi 
+
+Şekil 5.5. 
+
+Test sistemi, geliştirilen algoritma dışında basit arıza gerilimi eşitliği algoritması ve Takagi algoritması 
+ile farklı arıza uzaklıkları ve farklı arıza direnci durumlarında karşılaştırılmıştır. 
+
+İlk olarak algoritmalar 45 km, 120 km, 180 km ve 255 km arıza uzaklıklarında karşılaştırılmıştır. Bu test 
+durumunda uzaklığa bağlı arıza yeri bulma hatalarının değişiminin gözlenmesi amaçlanmıştır. Test 
+durumunun sonuçları Tablo 5.3’de verilmiştir. 
+
+ 
+
+ 
+
+Tablo 5.3. Test sisteminin farklı uzaklıklardaki çeşitli arıza tipleri için yüzde hata oranları 
+
+Arıza Yeri Bulma 
+Algoritması Tipi 
+
+Geliştirilen Algoritma 
+
+Basit Arıza Gerilimi 
+Eşitliği Algoritması 
+
+Takagi Algoritması 
+
+abc 
+0,0100 
+
+Arıza Tipi 
+
+at 
+0,0900 
+
+bc 
+0,0000 
+
+0,0100 
+0,9800 
+0,0100 
+3,4762 
+5,3329 
+4,4012 
+6,0653 
+0,0155 
+0,3209 
+6,5603 
+8,4126 
+
+0,0400 
+0,6900 
+0,0300 
+3,8354 
+6,2063 
+2,8717 
+3,3441 
+0,0096 
+0,2695 
+5,5797 
+6,9048 
+Arıza yeri hata oranı (%) 
+
+0,0400 
+0,2200 
+0,1400 
+4,5404 
+7,1843 
+4,3568 
+5,8611 
+0,0155 
+0,3806 
+4,3568 
+5,8611 
+
+bct 
+0,0000 
+
+0,0100 
+0,7200 
+0,1600 
+4,0414 
+6,4077 
+4,3167 
+5,8402 
+0,0155 
+0,3209 
+4,3167 
+9,8303 
+
+Arıza 
+Uzaklığı 
+
+45 km 
+120 km 
+180 km 
+255 km 
+45 km 
+120 km 
+180 km 
+255 km 
+45 km 
+120 km 
+180 km 
+255 km 
+
+Basit arıza gerilimi eşitliği algoritması, teorik olarak MOV ve seri kapasitörü dikkate almadığından 
+yüksek hata oranına sahiptir. Sonuçlardan da anlaşılacağı gibi basit arıza gerilimi eşitliği algoritması 
+seri kapasitörlü sistemler için uyarlanmadan, bu tip sistemlerde kullanılamaz.  
+
+Takagi algoritması, arızanın kapasitör öncesinde olduğu durumlarda, aldığı bara ölçümü değerleri seri 
+kapasitör ve MOV’un varlığından etkilenmediği için yüksek doğrulukla arıza yerini tespit etmiştir, 
+ayrıca uzaklığa bağlı olarak hata oranında az da olsa bir yükseliş gözlenmiştir. Ancak arıza kapasitör 
+sonrasında olduğu durumda, hata oranı %9 değerini geçmesi, bu algoritma için de bir senaryo seçicisi 
+ihtiyacı olduğu ortaya çıkmıştır. 
+
+Geliştirilen algoritma ise, genel olarak yüksek doğrulukla çalışmıştır. Arıza oluşum noktası seri 
+kapasitöre yaklaştıkça arıza yeri bulma hatasında az da olsa bir artış gözlenmiştir. 
+
+Diğer bir durumda, test sistemindeki algoritmalar 120 km ve 180 km uzaklıklarda farklı arıza dirençleri 
+ile sonuçları karşılaştırılmıştır. Bu testte 1 Ω, 10 Ω ve 50 Ω arıza dirençlerinde, algoritmaların düşük ve 
+yüksek arıza dirençlerine tepkileri incelenmiştir. Test durumu sonuçları Tablo 5.4’te verilmiştir. 
+
+ 
+
+ 
+
+Tablo 5.4. Test sisteminin farklı arıza dirençlerindeki faz-faz-toprak arıza tipi için yüzde hata oranları 
+
+Arıza Yeri Bulma Algoritması 
+Tipi 
+
+Geliştirilen Algoritma 
+
+Basit Arıza Gerilimi Eşitliği 
+Algoritması 
+
+Takagi Algoritması 
+
+1 Ω 
+0,0200 
+
+Arıza Direnci 
+
+10 Ω 
+0,0100 
+
+0,5700 
+0,3200 
+6,2720 
+6,3947 
+4,7407 
+4,3536 
+0,7392 
+0,3963 
+7,6620 
+8,5597 
+Arıza yeri hata oranı (%) 
+
+50 Ω 
+0,0000 
+
+0,1600 
+2,7578 
+8,2217 
+1,7821 
+17.8326 
+
+Arıza 
+Uzaklığı 
+120 km 
+180 km 
+120 km 
+180 km 
+120 km 
+180 km 
+
+Tablo 5.4 incelendiğinde, kapasitör öncesi arıza durumunda yüksek doğruluk yakalayan Takagi 
+algoritmasının dahi yüksek arıza direnci değerlerinde %1,5 hata oranını geçtiği görülmektedir, ek 
+olarak algoritmada arıza direnci artışıyla doğrusal bir hata oranı artışı da görülmektedir. Geliştirilen 
+algoritma ise, arıza direnci artışına doğrusal bir cevap vermemekte ve yüksek doğruluk oranını 
+koruduğu gözlenmektedir. 
+
+Tablo 5.3 ve Tablo 5.4 incelendiğinde temel algoritmalara seri kapasitörlü iletim hatlarında 
+kullanılmaları için bir geliştirme uygulanmadığı sürece kullanılamaz durumda oldukları, bu tip iletim 
+hatları için özel arıza yeri bulma algoritmalarının geliştirilmesi gerektiği sonuçlar incelendiğinde 
+anlaşılmaktadır. 
+
+5.2. Seri Kapasitörlü İletim Hatlarını Baz Alan Arıza Yeri Bulma Algoritmalarının Karşılaştırılması 
+
+Performansa dayalı algoritmanın, diğer seri kapasitörü dikkate alan algoritmalar ile karşılaştırılması 
+için test sistemi DigSILENT programında kurulmuştur. [59] kaynağından alınan test sistemi uygulanmış 
+olup, geliştirilen algoritma, Kapuduwage (2004) [59] ve Kang (2010) [25] algoritmaları 
+karşılaştırılmıştır. Kang (2010)’un simetrili bileşen tabanlı algoritması, uzun iletim hatları baz alınarak 
+oluşturulmuş bir algoritmadır, bu test sisteminde kullanılabilmesi için bu algoritma kısa hat modeline 
+uygun olacak şekilde indirgenmiştir. Simülasyon için iterasyon adımı 0,0001 ve örnekleme frekansı 10 
+kHz olarak alınmıştır. 
+
+Test sistemi, çeşitli arıza dirençleri, arıza tipleri ve uzaklıklara göre Tablo 5.5’te karşılaştırılmıştır. Hata 
+oranı gösterimi senaryo durumuna göre ikiye ayrılmıştır. 
+
+Tablo 5.5. Seri kapasitörü dikkate alan algoritmaların karşılaştırılması 
+
+ 
+Arıza 
+Tipleri ve 
+Arıza 
+Dirençleri 
+
+A-B-C,   
+1 Ω 
+
+A-B-C, 
+10 Ω 
+
+A-B-C, 
+50 Ω 
+
+Kapasitörden Önce Arıza Olması 
+Durumu 
+
+Kapasitörden Sonra Arıza Olması 
+Durumu 
+
+Geliştirilen 
+Algoritma 
+
+Simetrili 
+Bileşenler 
+Tabanlı 
+Algoritma 
+
+Kapuduwage 
+(2004) 
+Algoritması 
+
+Geliştirilen 
+Algoritma 
+
+Simetrili 
+Bileşenler 
+Tabanlı 
+Algoritma 
+
+Kapuduwage 
+(2004) 
+Algoritması 
+
+0,0200 
+
+0,0800 
+
+0,045 
+
+0,0100 
+
+0,0800 
+
+0,099 
+
+0,0100 
+
+0,1000 
+
+0,04 
+
+0,0100 
+
+0,1100 
+
+0,09 
+
+0,0800 
+
+0,3500 
+
+0,088 
+
+0,0400 
+
+0,4500 
+
+0,098 
+
+Faz-Faz,  
+1 Ω 
+
+Faz-Faz,  
+10 Ω 
+
+Faz-Faz, 
+50 Ω 
+
+Faz-Faz-
+Toprak,  
+1 Ω 
+
+Faz-Faz-
+Toprak, 
+10 Ω 
+
+Faz-Faz-
+Toprak, 
+50 Ω 
+
+0,0000 
+
+0,0600 
+
+0,057 
+
+0,0100 
+
+0,0600 
+
+0,097 
+
+0,0000 
+
+0,0600 
+
+0,034 
+
+0,0200 
+
+0,0600 
+
+0,089 
+
+0,0100 
+
+0,0800 
+
+0,067 
+
+0,0100 
+
+0,0900 
+
+0,104 
+
+0,0000 
+
+0,2100 
+
+0,056 
+
+0,0000 
+
+0,1900 
+
+0,091 
+
+0,0100 
+
+3,6600 
+
+0,05 
+
+0,0200 
+
+3,5700 
+
+0,092 
+
+0,0000 
+
+4,5700 
+
+0,066 
+
+0,0400 
+
+4,9900 
+
+0,108 
+
+Arıza yeri hata oranı (%) 
+
+Kapuduwage (2004) algoritması ile geliştirilen algoritmanın sonuçları, ne kadar birbirine yakın olsa da, 
+genel duruma bakıldığında geliştirilen algoritma ile daha iyi sonuçlar elde etmektedir. Simetrili 
+bileşenleri kullanan algoritma, yüksek arıza dirençlerinde faz-faz-toprak durumu dışında yüksek 
+doğruluk elde etmiştir. Görebileceği gibi algoritmalar iki bara ölçümlerini kullandıklarından tek bara 
+ölçümlerini kullanan algoritmalardaki gibi arıza uzaklığıyla hata oranlarında doğrusal bir artış 
+görülmemektedir. Ancak bütün algoritmalar arızanın seri kapasitörden önce veya sonra olma 
+durumundan etkilendiği görülmektedir. Tablo 5.6’te bu üç algoritmanın genel bir karşılaştırılması 
+yapılmıştır.  
+
+ 
+
+ 
+
+Tablo 5.6. Seri kapasitörü dikkate alan algoritmaların genel özellikleri 
+
+ 
+
+Tabanı 
+
+Geliştirilen Algoritma 
+
+Simetrili Bileşenler 
+Tabanlı Algrotima 
+
+Kapuduwage (2004) 
+Algoritması 
+
+İterasyon Tabanlı 
+
+İterasyon Tabanlı 
+
+Akıma Bağlı Gerilim 
+Düşümü Tabanlı 
+
+İletim Hattı Modeli 
+
+Orta Uzun Hatlar (п 
+Eşdeğer Devresi) 
+
+Kısa Hatlar 
+
+Kısa Hatlar 
+
+Tek Bara veya İki 
+Bara Ölçümlerini 
+Kullanıyor 
+
+Zaman Domeninde 
+veya Frekans 
+Domeninde 
+
+Akım ve Gerilim 
+Ölçümleri ve Hat 
+Bilgileri Dışında Veri 
+Gerektiriyor mu 
+
+Arıza Direnci Etkisi  
+
+Arıza Tipi Etkisi 
+
+İki Bara  
+
+İki Bara 
+
+Tek Bara 
+
+Frekans 
+
+Frekans 
+
+Zaman Domeni 
+
+Gerekmiyor 
+
+Gerekmiyor 
+
+MOV Karakteristiği 
+
+Düşük 
+
+Düşük 
+
+Yüksek 
+
+Yüksek 
+
+Düşük 
+
+Düşük 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+6. SONUÇLAR VE ÖNERİLER 
+
+Yapılan çalışmada, öncelikle tek ve iki bara ölçümlerini kullanan temel arıza yeri bulma algoritmaları 
+tanıtılarak, bu algoritmalar farklı test sistemlerinde incelenip sonuçları karşılaştırılmıştır. Daha sonra 
+seri kapasitörlü iletim hatları için geliştirilen algoritma, teorik olarak açıklanmıştır. İki baradan alınan 
+ölçümleri kullanan geliştirilmiş algoritma, seçilen temel arıza yeri bulma algoritmaları ile 
+karşılaştırılmış ve sonuçlar irdelenerek seri kompanze edilmiş iletim hatlarında bu sistemler için özel 
+olarak bir algoritma geliştirmenin gerekliliği vurgulanmıştır. Daha sonra geliştirilen algoritma, diğer 
+seri kompanze iletim hatları için özel geliştirilmiş algoritmlar ile karşılaştırılmıştır.  
+
+Temel arıza yeri bulma algoritmaları, homojen, homojen olmayan ve pi hat modeli ile modellenmiş 
+homojen olmayan test sistemlerinde farklı arıza uzaklığı, arıza tipi ve arıza direnci değerlerinde 
+incelenerek alınan sonuçlar karşılaştırılmıştır. Bu sonuçlara bağlı olarak, algoritmaların çalışma 
+karakteristikleri analiz edilmiştir. 
+
+Temel tek bara ölçümlerini kullanan arıza yeri bulma algoritmalarından, Takagi algoritması ve basit 
+reaktans algoritması arıza direncinin ihmal edildiği durumlarda birbirine yakın sonuçlar vermektedir. 
+Arıza direncinin ihmal edildiği durumlarda, homojen olmayan sistemlerde gerçek arıza yerine diğer 
+test sistemlerine göre daha yakın sonuçlar elde ettikleri görülmektedir. Genel olarak sonuçlara 
+bakıldığında, basit reaktans algoritması arıza direncinin ihmal edildiği senaryolarda daha iyi sonuçlar 
+vermektedir. Takagi ve basit reaktans algoritmasının hata oranları arıza direnci değerinin artışına 
+bağlı olarak artmaktadır. Basit reaktans algoritması, arıza direncinin olduğu senaryolarda %10 hata 
+oranını aşarak, arıza direncinin etkili olduğu durumlarda bu algoritmayı kullanmanın söz konusu 
+olmayacağını kanıtlar niteliktedir. Takagi algoritmasının hata oranında da özellikle homojen olmayan 
+test sisteminde, yüksek arıza direnci olduğu durumda %5 hata oranı aşılmaktadır. Ancak bu durum, 
+sadece faz-toprak arızalarında görülmektedir, diğer arıza tiplerinden bütün test senaryolarında 
+ulaşılan en yüksek hata oranı %1,54 civarlarındadır. İki algoritmanın sonuçları da admitans ve arıza 
+direncinin ihmal edildiği durumlarda arıza yeri uzaklığına bağlı olarak hata oranı artışı 
+göstermektedirler. Ayrıca bu iki algoritma dışında, sadece toprak arızalarında kullanılabilinen tek bara 
+ölçümleri ile işlem yapan geliştirilmiş Takagi algoritması da bulunmaktadır. Bu algoritmanın elde ettiği 
+sonuçlar incelendiğinde sadece faz-toprak arıza tipi için uygun olduğu anlaşılmaktadır. Geliştirilmiş 
+Takagi algoritmasında arıza yeri uzaklığı artışı veya arıza direnci değeri artışı etkileri diğer tek bara 
+ölçümlerini kullanan algoritmalardaki gibi doğrusal olarak hata oranını arttırmaz. Bütün senaryolar 
+incelendiğinde, faz-toprak arızasında maksimum %1,21 civarında bir hata oranı ile çalıştığı 
+gözlenmektedir. Takagi algoritması ve geliştirilmiş Takagi algoritması, birlikte kullanılarak hibrit bir 
+algoritma elde edilirse bu test sistemlerinde maksimum %1,54 hata oranı ile arıza yeri tespiti elde 
+edilecektir. 
+
+Temel iki bara ölçümlerini kullanan arıza yeri tespiti algoritmalarından simetrik arıza yeri bulma 
+algoritması, sadece simetrik arızalarda kullanılabilmesi ve arıza direncinin ihmal edildiği durumlarda 
+basit arıza gerilimi eşitliği algoritmasına yakın veya hata oranı daha yüksek sonuçlar vermektedir. 
+Buna ek olarak arıza direncinin dikkate alındığı durumlarda yüksek hata oranları vererek algoritma bu 
+test koşullarında kullanılamaz hale gelmektedir. Bu nedenle hem her arıza tipinde 
+kullanılabileceğinden, hem de gerçek arıza yeri değerine yakın sonuçlara ulaştığından basit arıza 
+gerilimi eşitliği algoritmasının özellikle simetrik arızalar için kullanılması daha isabetli olacaktır. 
+Asimetrik arızalarda ise, basit arıza gerilimi eşitliği algoritması, asimetrik arıza yeri bulma algoritması 
+
+ve negatif bileşenler ile arıza yeri bulma algoritması yüksek doğrulukla arıza yerini tespit etmektedir. 
+Bu algoritmalar, arıza uzaklığının değişmesinden ve arıza direnci artışından tek bara ölçümlerini 
+kullanan arıza yeri bulma algoritmaları kadar etkilenmezler. Negatif bileşenler ile arıza yeri bulma 
+algoritması, diğer iki bara ölçümlerini kullanan arıza yeri bulma algoritmalarının en yüksek hata 
+oranlarını verdiği orta uzun hat modeli (pi eşdeğer devresi) ile modellenmiş homojen olmayan test 
+sisteminde, en iyi sonuçları vererek admitans değerinin sonuçlarının doğruluğunu negatif yönde 
+etkilemediğini kanıtlamıştır. Buna ek olarak, diğer senaryolardaki sonuçlarda incelendiğinde, arıza 
+direnci değişiminde de arıza direncinin ihmal edildiği duruma yakın sonuçlar verdiği görülür, bu 
+durum baz alındığında arıza direnci değişiminin bu algoritmanın sonuçları üzerinde fazla bir etkisi 
+olmadığı anlaşılmaktadır. Ancak homojen olmayan test sisteminde hata oranları, diğer iki bara 
+ölçümlerini kullanan arıza yeri bulma algoritmalarından daha yüksek olduğu görülür. Genel durum 
+incelendiğinde iki bara ölçümlerini kullanan arıza yeri bulma algoritmaları, tek bara ölçümlerini 
+kullanan arıza yeri bulma algoritmalarından daha yüksek doğruluk payına sahiptir. 
+
+Seri kompanze edilmiş iletim hattınlarında, özellikle MOV’un doğrusal olmayan karakteristiği 
+nedeniyle bu sistemlere özel algoritmalar geliştirilmiştir. Fazörel hesaplamaları kullanan 
+algoritmaların azlığı ve varolan algoritmaların ise temel algoritmaların kullandığı ortak değişken 
+girişlere ek olarak yeni veriler istemesi, yeni bir algoritma ihtiyacını oluşturmuştur. Yapılan tezde, bu 
+ihtiyaca karşılık gelebilecek empedans tabanlı bir algoritma oluşturularak hazırlanan test 
+sistemlerinde verdiği sonuçlar gözlenmiştir. 
+
+Geliştirilen algoritma, öncelikle temel algoritmalar ile karşılaştırılarak, seri kompanze iletim hatları 
+için özel algoritma kullamı gerekliliği açıklanmıştır. Takagi algoritması, sonuçlardan anlaşılacağı gibi 
+seri kapasitör ile referans bara arasında kalan arazılarda düşük hata oranı ile arıza yerini tespit 
+etmiştir. Bunun nedeni olarak hesaplamada sadece referans baradan alınan ölçümleri kullanarak 
+arıza noktası ve uzak bara arasındaki etkenlerden (seri kapasitör, MOV) sonuçların etkilenmediği 
+gösterilebilir. Ancak seri kapasitörden sonra meydana gelen arızalarda, bu yaklaşım yüksek hata 
+oranına sahiptir. Basit arıza gerilimi eşitliği algoritması ise, iki baradan da alınan ölçümleri 
+kullandığından seri kapasitör ve MOV nedeniyle yüksek hata oranıyla sonuca ulaşmaktadır. Temel 
+algoritmalar, seri kompanze hat senaryosunda başarısız olurken geliştirilen algoritma farklı arıza 
+direnci, farklı arıza tipi ve farklı arıza yeri durumlarında yüksek doğruluk payıyla sonuca ulaşmıştır. 
+
+Ayrıca geliştirilen algoritma, diğer kompanze iletim hatları için özel olarak geliştirilmiş algoritmalar ile 
+de karşılaştırılmıştır. Kullanılan simetrili bileşenler tabanlı algoritma, faz-faz-toprak arızasındaki 
+yüksek arıza dirençli test senaryolarında %4 hata oranını aşmaktadır, ancak diğer senaryolarda yüksek 
+bir doğruluk ile arıza yerine ulaşabilmektedirler. Kapuduwage (2004) algoritması, her durumda düşük 
+hata payıyla arıza yerini tespit etmektedir ancak geliştirilen algoritmanın genel duruma bakıldığında, 
+gerçek arıza yerine, Kapuduwage (2004) algoritmasından daha yakın sonuçlara ulaştığı görülür. 
+Geliştirilen algoritma, farklı arıza direnci, arıza tipi ve arıza yeri durumlarında minimum hata ile 
+sonuca ulaşarak beklentileri karşılamıştır. 
+
+Bölüm 2, 3 ve 5 incelendiğinde, özellikle temel algoritmalarda bir algoritmanın zayıf kaldığı yerde 
+diğer algoritmanın güçlü olduğu gözlemlenir. Buna bağlı olarak temel arıza yeri algoritmalarında daha 
+fazla veri kullanarak düşük hata oranı elde edecek arıza yeri bulma algoritmaları geliştirmektense 
+hibrit algoritmalar ile arıza yeri yüksek doğrulukla tespit edilmektedir. Ancak bu durum temel 
+algoritmalar gibi seri kompanze edilmiş hatlarda kullanılan algoritmalar için birebir uygulanamaz. 
+Geliştirilen algoritma, performans tabanlı olarak tanımlanmış, giriş için gereken verileri temel 
+algoritmalar düzeyinde tutarak gereken hesaplama sayısının minimuma indirgenmesi amaçlanmıştır. 
+Bu algoritmayı farklı bir algoritma ile birleştirmek, daha fazla hesaplamaya yol açacağı ve algoritmaya 
+geliştirmek için kullanılan performans nedeni ile bağdaşmayacağı için birebir hibrit algoritmaya 
+
+geçilmesi uygun değildir. Ancak kullanılan örnek sayısı düşürülerek giriş verisi sayısı azalacağından 
+ancak bu durumda böyle bir uygulamadan söz edilebilir. Elbette bu tür bir uygulamada, algoritmaların 
+bu düşük örnekleme sayısında elde edeceği sonuçlar ve bu sonuçlar arasında hibrit bir algoritma 
+oluşturmaya gerektirecek kadar bir fark oluşup oluşmayacağı konularının irdelenmesi gerekir. 
+
+Geliştirilen algoritmanın uygulanmasının daha kolay olması, arıza sonrası verilerin hepsini irdeleyerek 
+en uygun sonucu seçmesi ve gerçek arıza yerine diğer algoritmalardan daha yakın sonuçlar elde 
+etmesi önemli özelliklerindendir. Geliştirilen algoritma, bunun dışında giriş verileri olarak temel arıza 
+yeri algoritmalarının kullandığı standart giriş verilerini talep etmektedir, ek olarak arıza öncesi 
+değerler veya önceden hesaplanmış değerlere ihtiyaç duymamaktadır. Ayrıca algoritma 
+hesaplamaları uzun hat modeli veya kısa hat modeline görede kolayca değiştirilebilinir. Temel arıza 
+yeri algoritmalarında ise, özellikle negatif bileşenleri kullanan algoritmaların arıza direnci ve admitans 
+değerinin ihmal edilmediği durumlarda minimum hata oranı elde etmesi göz ardı edilmemesi gereken 
+bulgulardandır. Bunun dışında simetrik arıza yeri bulma algoritması dışında iki baradan ölçüm 
+değerlerini kullanan algoritmalar bütün senaryolarda düşük hata oranları ile sonuca ulaşmışlardır. 
+Ancak Takagi ve geliştirilmiş Takagi algoritmasından oluşturulacak bir hibrit algoritmanın, iki baradan 
+ölçüm değerlerini kullanan algoritmalar kadar iyi sonuçlar elde edemesede yaklaşık %1’lik maksimum 
+hata oranı ile göz ardı edilemeyecek bir isabet ile sonuca ulaşabilir. 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+KAYNAKLAR 
+
+[1] 
+
+[2] 
+
+[3] 
+
+[4] 
+
+[5] 
+
+[6] 
+
+[7] 
+
+[8] 
+
+[9] 
+
+[10] 
+
+[11] 
+
+[12] 
+
+[13] 
+
+[14] 
+
+Takagi T., Yamakoshi Y., Yamaura M., Kandow R., Matsushima T., Development of A New 
+Type Fault Locator Using The One-Terminal Voltage and Current Data, IEEE Transactions on 
+Power Apparatus and Systems, 1982, PAS-101(8), 2892-2898. 
+
+Gale P. F., Crossley P. A., Bingyin X., Yaozhong G., Cory B. J., Barker J. R. G., Fault Location 
+Based on Travelling Waves, Fifth International Conference on Developments in Power System 
+Protection, York, United Kingdom, 30 March-01 April 1993. 
+
+Iżykowski J., Fault Location on Power Transmission Lines, Oficyna Wydawnicza Politechniki 
+Wrocławskiej, Wrocław, 2008. 
+
+Lewis L. J., Traveling Wave Relations Applicable to Power-System Fault Locators, Transactions 
+of the American Institute of Electrical Engineers, 1951, 70(2), 1671-1680. 
+
+Aurangzeb M., Crossley P. A., Gale P., Fault Location on a Transmission Line Using High 
+Frequency Travelling Waves Measured at a Single Line End, IEEE Power Engineering Society 
+Winter Meeting, 2000, 4, 2437-2442. 
+
+Lopes F. V., Fernandes D., Neves W. L. A., Fault Location on Transmission Lines Based on 
+Travelling Waves, International Conference on Power Systems Transients (IPST2011), Delft, 
+Netherlands, 14-17 June 2011. 
+
+Siozinys V., Urniezius R., Transmission Line Protection and Fault Location Based on Travelling 
+Wave Measurement, Elektronika ir Elektrotechnika, 2013, 19(9), 21-24. 
+
+Saha M. M., Izykowski J., Rosolowski E., Fault Location on Power  Networks, Springer, London, 
+2010. 
+
+Zimmerman K., Costello D., Impedance-Based Fault Location Experience, 58th Annual 
+Conference for Protective Relay Engineers, College Station, Texas, USA, 5-7 April 2005. 
+
+Yin H., Fan L., PMU Data-Based Fault Location Techniques, North American Power Symposium 
+(NAPS), Arlington, Texas, USA, 26-28 September 2010. 
+
+Preston G., Radojevic Z. M., Kim C. H., Terzija V., New Settings-Free Fault Location Algorithm 
+Based on Synchronised Sampling, IET Generation, Transmission & Distribution, 2011, 5(3), 
+376-383. 
+
+Zhang Q., Zhang Y., Song W., Yu Y., Transmission Line Fault Location for Phase-to-Earth Fault 
+Using One-Terminal Data, IEE Proceedings-Generation, Transmission and Distribution, 1999, 
+146(2), 121-124. 
+
+Quingchao Z., Yao Z., Wennan S., Yixin Y., Zhigang W., Fault Location of Two-Parallel 
+Transmission Line for Non-Eath Fault Using One- Terminal Data, IEEE Transactions on Power 
+Delivery, 1999, 14(3), 863-867. 
+
+Saha M. M., Izykowski J., Rosolowski E., Balcerek P., Fulczyk M., Accurate Location of Faults 
+on Series-Compensated Lines with Use of Two-End Unsynchronised Measurements, IET 9th 
+International Conference on Developments in Power System Protection, Galsgow, Scotland, 
+17-20 March 2008. 
+
+[15] 
+
+[16] 
+
+[17] 
+
+[18] 
+
+[19] 
+
+[20] 
+
+[21] 
+
+[22] 
+
+[23] 
+
+[24] 
+
+[25] 
+
+[26] 
+
+[27] 
+
+[28] 
+
+[29] 
+
+[30] 
+
+Funabashi T., Otoguro H., Mizuma Y., Dube L., Ametani A., Digital Fault Location for Parallel 
+Double-Circuit Multi-Terminal Transmission Lines, IEEE Transactions on Power Delivery, 2000, 
+15(2), 531-537. 
+
+Izykowski J., Rosolowski E., Balcerek P., Fulczyk M., Saha M. M., Accurate Noniterative Fault-
+Location Algorithm Utilizing Two-End Unsynchronized Measurements, IEEE Transactions on 
+Power Delivery, 2011, 26(2), 547-555. 
+
+Pereira C. E. M., Zanetta L. C., Fault Location in Multitapped Transmission Lines Using 
+Unsynchronized Data and Superposition Theorem, IEEE Transactions on Power Delivery, 
+2011, 26(4), 2081-2089. 
+
+Liu C., Lin T., Yu C., Yang Z., A Fault Location Technique for Two-Terminal Multisection 
+Compound Transmission Lines Using Synchronized Phasor Measurements, IEEE Transactions 
+on Smart Grid, 2012, 3(1), 113-121. 
+
+Vieira D. A. G., Oliveira D. B., Lisboa A. C., A Closed-Form Solution for Untransposed 
+Transmission-Lines Fault Location With Nonsynchronized Terminals, IEEE Transactions on 
+Power Delivery, 2013, 28(1), 524-525. 
+
+Vyas B., Maheshwari R. P., Das B., Protection of Series Compensated Transmission Line: 
+Issues and State of Art, Electric Power Systems Research, DOI: 10.1016/j.epsr.2013.09.017. 
+
+Pašiċ J., Series Compensated Lines–Fast Detection of Energy Flow Direction, 18th 
+International Conference on Systems, Signals and Image Processing (IWSSIP), Sarajevo, Bosnia 
+and Herzegovina, 16-18 June 2011. 
+
+Gajbhiye R. K., Gopi B., Kulkarni P., Soman S. A., Computationally Efﬁcient Methodology for 
+Analysis of Faulted Power Systems With Series-Compensated Transmission Lines: A Phase 
+Coordinate Approach, IEEE Transactions on Power Delivery, 2008, 23(2), 873-880. 
+
+Yu C., Liu C., Yu S., Jiang J., A New PMU-Based Fault Location Algorithm for Series 
+Compensated Lines, IEEE Transactions on Power Delivery, 2002, 17(1), 33-46. 
+
+Saha M. M., Izykowski J., Rosolowski E., Kasztenny B., A New Accurate Fault Locating 
+Algorithm for Series Compensated Lines, IEEE Transactions on Power Delivery, 1999, 14(3), 
+789-797. 
+
+Kang N., Advancements in Transmission Line fault Location, Doctoral Dissertations, University 
+of Kentucky, Lexington, Kentucky, 2010, Paper 69. 
+
+Srivani S. G., Nisha T. T., Estimation of Fault Location Algorithm in Series Compensated FACT 
+Systems, IEEE Fifth Power India Conference, DOI: 10.1109/PowerI.2012.6479496. 
+
+Abdelaziz A. Y., Mekhamer S. F., Ezzat M., Electric Power Components and Systems, DOI: 
+10.1080/15325008.2013.763312. 
+
+Huang Z., Chen Y., Gong Q., A Protection and Fault Location Scheme for EHV Line with Series 
+Capacitor Based on Travelling Waves and Wavelet Analysis, International Conference on 
+Power System Technology (PowerCon), DOI: 10.1109/ICPST.2002.1053551. 
+
+Abedini M., Hasani A., Hajbabaie A. H., Khaligh V., A New Traveling Wave Fault Location 
+Algorithm in Series Compensated Transmission Line, 21st Iranian Conference on Electrical 
+Engineering (ICEE), DOI: 10.1109/IranianCEE.2013.6599888. 
+
+Sadeh J., Hadjsaid N., Ranjbar A. M., Feuillet R., Accurate Fault Location Algorithm for Series 
+Compensated Transmission Lines, IEEE Transactions on Power Delivery, 2000, 15(3), 1027-
+1033. 
+
+[31] 
+
+[32] 
+
+[33] 
+
+[34] 
+
+[35] 
+
+Sadeh J., Adinehzadeh A., Accurate Fault Location Algorithm for Transmission Line in the 
+Presence of Series Connected FACTS Devices, Electrical Power and Energy Systems, DOI: 
+10.1016/j.ijepes.2009.09.001. 
+
+Ahsaee M. G., Sadeh J., A Novel Fault-Location Algorithm for Long Transmission Lines 
+Compensated by Series FACTS Devices, IEEE Transactions on Power Delivery, 2011, 26(4), 
+2299-2308. 
+
+Nobakhti S. M., Akhbari M., A New Algorithm for Fault Location In Series Compensated 
+Transmission Lines with TCSC, Electrical Power and Energy Systems, DOI: 
+10.1016/j.ijepes.2013.11.052. 
+
+Joorabian M., Artificial Intelligent Based Fault Location Technique for EHV Series-
+Compensated Lines, International Conference on Energy Management and Power Delivery 
+(EMPD), DOI: 10.1109/EMPD.1998.702709. 
+
+Dash, Pradhan, Panda, Application of Artificial Intelligence Techniques for Classification and 
+Location of Faults on Thyristor- Controlled Series-Compensated Line, Electric Power 
+Components and Systems, DOI: 10.1080/15325000390112170. 
+
+ 
+
+ 
+
+[36] 
+
+Eldin E. S. M. T., Fault Location for a Series Compensated Transmission Line Based on 
+Wavelet Transform and an Adaptive Neuro-fuzzy Inference System, Electric Power Quality 
+and Supply Reliability Conference (PQ), DOI: 10.1109/PQ.2010.5549994. 
+
+[37]  Malathi V., Marimuthu N. S., Baskar S., Ramar K., Application of Extreme Learning Machine 
+for Series Compensated Transmission Line Protection, Engineering Applications of Artiﬁcial 
+Intelligence, DOI: 10.1016/j.engappai.2011.03.003. 
+
+[38] 
+
+[39] 
+
+Yusuff A. A., Fei C., Jimoh A. A., Munda J. L., Fault Location in a Series Compensated 
+Transmission Line Based on Wavelet Packet Decomposition and Support Vector Regression, 
+Electric Power Systems Research, DOI: 10.1016/j.epsr.2010.12.016. 
+
+Ray P., Panigrahi B. K., Senroy N., An AI Approach for Fault Distance Estimation in Series 
+Compensated Transmission Line, International Conference on Energy, Automation, and Signal 
+(ICEAS), DOI: 10.1109/ICEAS.2011.6147072. 
+
+[40]  Meyar-Naimi H., A New Fuzzy Fault Locator for Series Compensated Transmission Lines, 11th 
+
+International Conference on Environment and Electrical Engineering (EEEIC), DOI: 
+10.1109/EEEIC.2012.6221511. 
+
+[41]  Moravej Z., Khederzadeh M., Pazoki M., New Combined Method for Fault Detection, 
+Classification, and Location in Series-compensated Transmission Line, Electric Power 
+Components and Systems, DOI: 10.1080/15325008.2012.675409. 
+
+[42] 
+
+Ray P., Fast and Accurate Fault Location by Extreme Learn ing Machine in a Series 
+Compensated Transmission Line, Power and Energy Systems: Towards Sustainable Energy 
+(PESTSE 2014), DOI: 10.1109/PESTSE.2014.6805252. 
+
+[43] 
+
+Phadke A. G., Thorp J. S., Computer Relaying for Power Systems, John Wiley & Sons Ltd, 
+Chichester, England, 2009. 
+
+[44] 
+
+Saadat H., Power System Analysis, McGraw Hill, New York, 1999. 
+
+[45] 
+
+[46] 
+
+[47] 
+
+[48] 
+
+[49] 
+
+[50] 
+
+[51] 
+
+Girgis A. A., Hart D. G., Peterson W. L., A New Fault Location Technique for Two-and Three-
+Terminal Lines, IEEE Transactions on Power Delivery, 1992, 7(1), 98-107. 
+
+Tziouvaras D. A., Roberts J. B., G Benmouyal G., New Multi-Ended Fault Location Design for 
+Two-or Three-Terminal Lines, Seventh International Conference on (IEE) Developments in 
+Power System Protection, DOI: 10.1049/cp:20010183. 
+
+Rabinowitz M., Power Systems of the Future (Part 2), IEEE Power Engineering Review, DOI: 
+10.1109/39.825624. 
+
+Dash P. K., Pradhan A. K., Panda G., Liew A. C., Adaptive Relay Setting for Flexible AC 
+Transmission Systems (FACTS), IEEE Transactions on Power Delivery, 2000, 15(1), 38-43. 
+
+Novosel D., Bachmann B., Hart D., Hu Y., Saha M. M., Algorithms for Locating Faults on Series 
+Compensated Lines Using Neural Network and Deterministic Methods, IEEE Transactions on 
+Power Delivery, 1996, 11(4), 1728-1736. 
+
+Girgis A. A., Sallam A. A., El-Din A. K., An Adaptive Protection Scheme for Advanced Series 
+Compensated (ASC) Transmission Lines, IEEE Transactions on Power Delivery, 1998, 13(2), 
+414-420. 
+
+Ghassemi F., Goodarzi J., Johns A., Method to Improve Digital Distance Relay Impedance 
+Measurement when Used in Series Compensated Lines Protected by a Metal Oxide Varistor, 
+IEE Proceedings Generation, Transmission and Distribution, DOI: 10.1049/ip-gtd:19982002. 
+
+[52] 
+
+[53] 
+
+[54] 
+
+[55] 
+
+[56] 
+
+[57] 
+
+[58] 
+
+ 
+
+[59] 
+
+Cheong W. J., Aggarwal R. K., A Novel Fault Location Technique Based on Current Signals Only 
+for Thyristor Controlled Series Compensated Transmission Lines Using Wavelet Analysis and 
+Self Organising Map Neural Networks, Eighth IEE International Conference on Developments 
+in Power System Protection, DOI: 10.1049/cp:20040104. 
+
+Al-Dabbagh M., Kapuduwage S. K., Using Instantaneous Values for Estimating Fault Locations 
+on Series Compensated Transmission Lines, Electric Power Systems Research, DOI: 
+10.1016/j.epsr.2005.03.004. 
+
+Apostolopoulos C., Korres G., Accurate Fault Location Algorithm for Double-Circuit Series 
+Compensated Lines Using a Limited Number of Two-End Synchronized Measurements, 
+International Journal of Electrical Power & Energy Systems, DOI: 
+10.1016/j.ijepes.2012.03.042. 
+
+Goldsworthy D. L., A Linearized Model for Mov-Protected Series  Capacitors, IEEE 
+Transactions on Power Systems, DOI: 10.1109/TPWRS.1987.4335284. 
+
+Kizilcay M., Teichmann K., Agdemir A., Lösing M., Neumann C., Blackstart of a 380-KV 
+Transmission System with Unloaded Transformers After a System Collapse, 17th Power 
+Systems Computation Conference, Stockholm, Sweden, 22-26 August 2011. 
+
+DIgSILENT Gmbh, DIgSILENT Power Factory Version 13.1 Manual, Gomaringen, Germany, 
+2004. 
+
+Nafar M., Gharehpetian G. B., Niknam T., A Novel Parameter Estimation Method for Metal 
+Oxide Surge Arrester Models, Sādhanā, 2011, 36(6), 941-961. 
+
+Kapuduwage S. K., Al-Dabbagh M., One End Simplified Fault Location Algorithm Using 
+Instantaneous Values for Series Compensated High Voltage Transmission Lines, Australasian 
+Universities Power Engineering Conference (AUPEC 2004), Brisbane, Australia, 26-29 
+September 2004. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+EKLER 
+
+ 
+
+ 
+
+Bölüm 5.1’de kullanılan MOV, aşağıdaki karakteristik baz alınarak oluşturulmuştur; 
+
+Ek-A 
+
+ 
+
+Vref 
+Iref 
+α1 
+α2 
+α3 
+k1 
+k2 
+k3 
+
+40 kV 
+1 kA 
+50° 
+25° 
+16,5° 
+0,955 
+1 
+0,9915 
+
+*k1,2,3 eğim için kullanılan sabitlerdir. 
+
+Bölüm 5.2’de ise Kapuduwage (2004) makalesinin değerleri alınmıştır; 
+
+ 
+
+Vref 
+Iref 
+α 
+k 
+
+330 kV 
+4,4 kA 
+23° 
+0,955 
+
+i1/irefrefVII()kV=Ek-B 
+
+Aşağıda kullanılan temel algoritmalar ve geliştirilen algoritmanın değişkenleri ve MATLAB kodları 
+verilmiştir; 
+
+delta_I=Arıza sonrası ve öncesi akımın farkı, 
+
+V_fzrl, V2_fzrl=Sırasıyla referans ve uzak bara gerilimi, 
+
+I_ussu, I2_ussu=Sırasıyla referans ve uzak bara akımı, 
+
+I_poz, I2_poz, I_zero, I2_zero, I_neg, I2_neg=Sırasıyla pozitif, sıfır ve negatif bileşen referans ve uzak 
+bara akımı, 
+
+V_poz, V2_poz, V_zero, V2_zero, V_neg, V2_neg= Sırasıyla pozitif, sıfır ve negatif bileşen referans ve 
+uzak bara gerilimi, 
+
+ZP, ZS, ZR, Z0S, Z0R, ZNS, ZNR= Sırasıyla pozitif, sıfır ve negatif bileşen hat empedansı, 
+
+L_kap_S, L_kap_R =Sırasıyla referans ve uzak baraya göre seri kapasitör konumu, 
+
+Vcap_B, Vcap_A=Sırasıyla seri kapasitör öncesi ve sonrası senaryolarda seri kapasitör gerilimi, 
+
+VF_B,VF_A= Sırasıyla seri kapasitör öncesi ve sonrası senaryolarda arıza noktası gerilimi, 
+
+I_SC_B, I_SC_A= Sırasıyla seri kapasitör öncesi ve sonrası senaryolarda seri kapasitöre giren akım, 
+
+IFS_B, IFR_B, IFS_A, IFR_A = Sırasıyla seri kapasitör öncesi ve sonrası senaryolarda referans bara ve 
+uzak baradan gelen arıza akımı bileşenleri, 
+
+D=arıza yeri, 
+
+Y=admitans, 
+
+ 
+
+Takagi Algoritması: 
+if delta_I==0 
+else 
+Takagi=(imag(V_fzrl(i)*conj(delta_I)))/(imag(ZP*I_ussu(i)*conj(delta_I)))     
+delta_I=0; 
+end  
+
+Basit Reaktans Algoritması: 
+Simple_Reactance_Method=(imag(V_fzrl(i)/I_ussu(i)))/(imag(ZP)) 
+
+Geliştirilmiş Takagi Algoritması: 
+Modified_Takagi_s1=(imag(V_fzrl(i)*conj(3*I_zero(i))))/(imag(ZP*I_ussu(i)*conj(3*I_zero(i))))  
+Modified_Takagi_s2=angle((Z0S+Z0R+Z0)/((1-abs(Modified_Takagi_s1))*Z0+Z0R)); 
+Modified_Takagi=(imag(V_fzrl(i)*conj(3*I_zero(i))*exp(j*Modified_Takagi_s2*(-
+1))))/(imag(ZP*I_ussu(i)*conj(3*I_zero(i))*exp(j*Modified_Takagi_s2*(-1))))  
+
+Basit Arıza Gerilimi Eşitliği Algoritması: 
+iki_uclu_yon_dersnot_1=V_fzrl(i)-V2_fzrl(i); 
+iki_uclu_yon_dersnot_2=ZP*I2_ussu(i); 
+iki_uclu_yon_dersnot_3=iki_uclu_yon_dersnot_1+iki_uclu_yon_dersnot_2; 
+
+iki_uclu_yon_dersnot_4=I_ussu(i)+I2_ussu(i); 
+iki_uclu_yon_dersnot_5=ZP*iki_uclu_yon_dersnot_4; 
+iki_uclu_yon_dersnot_son=abs(iki_uclu_yon_dersnot_3/iki_uclu_yon_dersnot_5) 
+
+Negatif Bileşenler İle Arıza Yeri Bulma Algoritması: 
+step=0; 
+for D=0.0001:0.0001:0.9999 
+TENSIM_hata(step+1)=abs(((-I_neg(i)*(ZNS+D*ZN)))-((-I2_neg(i)*(ZNR+(1-D)*ZN)))); 
+step=step+1; 
+end 
+for D=0.0001:0.0001:0.9999 
+ if abs(((-I_neg(i)*(ZNS+D*ZN)))-((-I2_neg(i)*(ZNR+(1-D)*ZN))))==min(TENSIM_hata) 
+Two_Ended_Negative_Sequence_Impedance_Method=D 
+end 
+end 
+
+Asimetrik Arıza Yeri Bulma Algoritması: 
+Asymmetrical_Method_h=[((V_poz(i)-V2_poz(i))*I2_neg(i))-((V_neg(i)-
+V2_neg(i))*I2_poz(i))]/[((V_poz(i)-V2_poz(i))*(I_neg(i)+I2_neg(i)))-((V_neg(i)-
+V2_neg(i))*(I_poz(i)+I2_poz(i)))]; 
+Asymmetrical_Method=real(Asymmetrical_Method_h) 
+
+Simetrik Arıza Yeri Bulma Algoritması: 
+a1=real(V_poz(i)/I_poz(i)); 
+a2=imag(V_poz(i)/I_poz(i)); 
+b1=real((-(I_poz(i)+I2_poz(i)))/I_poz(i)); 
+b2=imag((-(I_poz(i)+I2_poz(i)))/I_poz(i)); 
+c1=real(V2_poz(i)/I2_poz(i)); 
+c2=imag(V2_poz(i)/I2_poz(i)); 
+d1=real((-(I_poz(i)+I2_poz(i)))/I2_poz(i)); 
+d2=imag((-(I_poz(i)+I2_poz(i)))/I2_poz(i)); 
+p=((a1*d1)+(b1*c2)-(a2*d1)-(b2*c2))/((b1*d2)-(b2*d1)); 
+q=((a1*c2)-(a2*c1))/((b1*d2)-(b2*d1)); 
+rf1=abs((1/2)*((-1*p)+sqrt((p^2)-(4*q)))); 
+rf2=abs((1/2)*((-1*p)-sqrt((p^2)-(4*q)))); 
+if a1+(b1*rf1)>0 | a2+(b2*rf1)>0 | c1+(d1*rf1)>0 |c2+(d2*rf1)>0  
+if a1+(b1*rf2)>0  | a2+(b2*rf2)>0 | c1+(d1*rf2)>0 | c2+(d2*rf2)>0 
+teta1=atan((a2+(b2*rf1))/(a1+(b1*rf1))); 
+teta2=atan((a2+(b2*rf2))/(a1+(b1*rf2))); 
+aci_kar=abs(angle(V_fzrl(i))-angle(I_ussu(i))); 
+kar_1=abs(abs(aci_kar)-abs(teta1)); 
+kar_2=abs(abs(aci_kar)-abs(teta2)); 
+ if kar_1<kar_2 
+rf=rf1; 
+else 
+rf=rf2; 
+end 
+end 
+else rf=rf2; 
+
+end 
+Symmetrical_Method=sqrt([([a1+(b1*rf)]^2)+([a2+(b2*rf)]^2)]/[([a1+c1+((b1+d1)*rf)]^2)+([a2+c2+((b
+2+d2)*rf)]^2)])        
+
+Geliştirilen Algoritma 
+VF_B=@(D) (V_fzrl(i)*(1+(Y*ZP*(D^2))/2))-(I_ussu(i)*(D*ZP)); 
+Vcap_B=(V2_fzrl(i)*(1+(Y*ZP*(L_kap_R^2))/2))-(I2_ussu(i)*(L_kap_R*ZP)); 
+I_SC_B=-(((Y*L_kap_R)+((Y^2)*ZP*(L_kap_R^3))/4)*V2_fzrl(i))+(1+(Y*ZP*(L_kap_R^2))/2)*I2_ussu(i); 
+IFS_B=@(D) -(((Y*D)+((Y^2)*ZP*(D^3))/4)*V_fzrl(i))+(1+(Y*ZP*(D^2))/2)*I_ussu(i); 
+Z_B=@(D) (VF_B(D)-Vcap_B)/(((Y*((1-D-L_kap_R)^2)/2)*Vcap_B)-((1-D-L_kap_R)*I_SC_B)); 
+IFR_B=@(D) -(((Y*(1-D-L_kap_R))+((Y^2)*Z_B(D)*((1-D-L_kap_R)^3))/4)*Vcap_B)+(1+(Y*Z_B(D)*((1-
+D-L_kap_R)^2))/2)*I_SC_B; 
+VF_A=@(D) (V2_fzrl(i)*(1+(Y*ZP*(D^2))/2))-(I2_ussu(i)*(D*ZP)); 
+Vcap_A=(V_fzrl(i)*(1+(Y*ZP*(L_kap_S^2))/2))-(I_ussu(i)*(L_kap_S*ZP)); 
+I_SC_A=-(((Y*L_kap_S)+((Y^2)*ZP*(L_kap_S^3))/4)*V_fzrl(i))+(1+(Y*ZP*(L_kap_S^2))/2)*I_ussu(i); 
+IFS_A=@(D) -(((Y*D)+((Y^2)*ZP*(D^3))/4)*V2_fzrl(i))+(1+(Y*ZP*(D^2))/2)*I2_ussu(i); 
+Z_A=@(D) (VF_A(D)-Vcap_A)/(((Y*((1-D-L_kap_S)^2)/2)*Vcap_A)-((1-D-L_kap_S)*I_SC_A)); 
+IFR_A=@(D) -(((Y*(1-D-L_kap_S))+((Y^2)*Z_A(D)*((1-D-L_kap_S)^3))/4)*Vcap_A)+(1+(Y*Z_A(D)*((1-
+D-L_kap_S)^2))/2)*I_SC_A; 
+hata_oran_bulma_mmS=0; 
+hata_oran_bulma_mmR=0; 
+for D=0.001:0.0001:L_kap_S-0.0001 
+Hata_mat_paS=hata_oran_bulma_mmS+1; 
+Epsilon_oranS(Hata_mat_paS)=abs(angle((VF_B(D)))-angle((IFS_B(D)+IFR_B(D)))); 
+hata_oran_bulma_mmS=hata_oran_bulma_mmS+1; 
+end    
+for D=0.001:0.0001:L_kap_S-0.0001 
+if abs(angle((VF_B(D)))-angle((IFS_B(D)+IFR_B(D))))==min(Epsilon_oranS) 
+if  max(Epsilon_oranS)>min(Epsilon_oranS) 
+if real(Z_B(D))>=0  
+Scenerio=0; 
+dongu=dongu+1; 
+Sonuc_paralelB_ft(dongu)=D; 
+Sonuc_minhata(dongu)= abs(angle((VF_B(D)))-angle((IFS_B(D)+IFR_B(D)))); 
+end 
+end 
+end 
+end    
+for D=0.001:0.0001:L_kap_R-0.0001 
+Hata_mat_paR=hata_oran_bulma_mmR+1; 
+Epsilon_oranR(Hata_mat_paR)=abs(angle((VF_A(D)))-angle((IFS_A(D)+IFR_A(D)))); 
+hata_oran_bulma_mmR=hata_oran_bulma_mmR+1; 
+end 
+for D=0.001:0.0001:L_kap_R-0.0001 
+if abs(angle((VF_A(D)))-angle((IFS_A(D)+IFR_A(D))))==min(Epsilon_oranR) 
+if  max(Epsilon_oranR)>min(Epsilon_oranR) 
+if real(Z_A(D))>=0  
+Scenerio=1; 
+
+dongu=dongu+1; 
+Sonuc_paralelA_ft(dongu)=1-D; 
+Sonuc_minhata(dongu)=abs(angle((VF_A(D)))-angle((IFS_A(D)+IFR_A(D)))); 
+end 
+end 
+end 
+end 
+if dongu>1  
+if Sonuc_minhata(dongu-1)>Sonuc_minhata(dongu) & Scenerio==1 
+Seri_lumped_SonucA_ft=Sonuc_paralelA_ft(dongu); 
+end 
+if Sonuc_minhata(dongu-1)>Sonuc_minhata(dongu) & Scenerio==0 
+Seri_lumped_SonucB_ft=Sonuc_paralelB_ft(dongu); 
+end 
+end 
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+KİŞİSEL YAYIN VE ESERLER 
+
+Çapar A., Arsoy Basa A., A Performance Oriented Impedance Based Fault Location Algorithm for 
+Series Compensated Transmission Lines, International Journal of Electrical Power & Energy Systems, 
+DOI: 10.1016/j.ijepes.2015.02.020. 
+
+Çapar A., Arsoy Basa A., Evaluating Accuracy of Fault Location Algorithms Based on Terminal Current 
+and Voltage Data, International Journal of Electronics and Electrical Engineering, DOI: 
+10.12720/ijeee.3.3.202-206. 
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+ÖZGEÇMİŞ 
+
+ 
+
+Alkım Çapar 1988’de Balıkesir’de doğdu. Lise öğrenimini Muharrem Hasbi Lisesi’nde tamamladı. 2007 
+yılında girdiği Kocaeli Üniversitesi Elektrik Mühendisliği Bölümü’nden 2012 yılında ikincilik ile mezun 
+oldu. Aynı yıl içinde Kocaeli Üniversitesi Elektrik Mühendisliği Anabilim Dalı’nda yüksek lisans 
+eğitimine başladı. Yüksek lisans eğitiminde iletim hatlarında arıza yeri bulma algoritmaları konusunda 
+çalışmaları bulunmaktadır. Ayrıca, 2013 yılında Fen Bilimleri Enstitüsü’nde başladığı araştırma 
+görevlisi görevini halen sürdürmektedir.  
+
+

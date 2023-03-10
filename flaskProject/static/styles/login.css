@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    background-image: linear-gradient(360deg,#2f4454,#2e151b);
+    display: table-cell;
+    vertical-align: middle;
+
+}
+.logo {
+    margin: auto;
+    width: 20%;
+    height: auto;
+}
+#username
+{
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    background:#2e151b ;
+}
+#password
+{
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    background:#2e151b ;
+}
+#submitLogin
+{
+    padding: 10px;
+    width: 110%;
+    font-size: 16px;
+    background: #376e6f;
+}
+.register{
+    padding: 10px;
+    width: 110%;
+    font-size: 16px;
+    background: #376e6f;
+}
+
+.admin
+{
+    padding: 10px;
+    width: 110%;
+    font-size: 16px;
+    background: #376e6f;
+}
+
